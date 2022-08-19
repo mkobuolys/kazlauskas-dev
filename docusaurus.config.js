@@ -33,8 +33,9 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         blog: {
-          showReadingTime: true,
           editUrl: "https://github.com/mkobuolys/kazlauskas-dev/tree/main/",
+          routeBasePath: "/",
+          showReadingTime: true,
         },
         docs: false,
         theme: {
@@ -53,7 +54,6 @@ const config = {
           alt: "mkobuolys logo",
           src: "img/mkobuolys.png",
         },
-        items: [{ to: "/blog", label: "Blog", position: "left" }],
       },
       footer: {
         style: "dark",
@@ -74,10 +74,7 @@ const config = {
                 label: "LinkedIn",
                 href: "https://www.linkedin.com/in/mangirdas-kazlauskas",
               },
-              {
-                label: "Sessionize",
-                href: "https://sessionize.com/mangirdas-kazlauskas",
-              },
+
               {
                 label: "Twitter",
                 href: "https://twitter.com/mkobuolys",
@@ -96,6 +93,10 @@ const config = {
                 href: "https://github.com/mkobuolys",
               },
               {
+                label: "Sessionize",
+                href: "https://sessionize.com/mangirdas-kazlauskas",
+              },
+              {
                 label: "Stack Overflow",
                 href: "https://stackoverflow.com/users/15427566/mkobuolys",
               },
@@ -112,6 +113,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ["dart"],
       },
     }),
 };
