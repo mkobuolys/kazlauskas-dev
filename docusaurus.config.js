@@ -32,12 +32,12 @@ const config = {
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        docs: false,
         blog: {
           editUrl: "https://github.com/mkobuolys/kazlauskas-dev/tree/main/",
           routeBasePath: "/",
           showReadingTime: true,
         },
-        docs: false,
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -54,6 +54,17 @@ const config = {
           alt: "mkobuolys logo",
           src: "img/mkobuolys.png",
         },
+        items: [
+          {
+            label: "About me",
+            to: "/about-me",
+          },
+          {
+            label: "Flutter Design Patterns",
+            href: "https://flutterdesignpatterns.com",
+            position: "right",
+          },
+        ],
       },
       footer: {
         style: "dark",
@@ -62,8 +73,8 @@ const config = {
             title: "kazlauskas.dev",
             items: [
               {
-                label: "Blog",
-                to: "/blog",
+                label: "About me",
+                to: "/about-me",
               },
             ],
           },

@@ -9,7 +9,7 @@ tags:
 
 _Dart type system goes: never say never…_
 
-![Header image](./header.png)
+![Header image](./img/header.png)
 
 First of all, the title of this article could seem like just another clickbait but let me explain. Sure, there is a chance that you have used this type, but for the sake of a pun (and I REALLY enjoy them), I had to do it - oh well, here we are now. The thing is, the type I am going to talk about in this article is actually called **Never**.
 
@@ -25,7 +25,7 @@ All the information provided in this article is based on the [official Dart lang
 
 ## Dart type system before and after null safety
 
-![Dart type system before (left) and after (right) null safety](./dart-type-system.png)
+![Dart type system before (left) and after (right) null safety](./img/dart-type-system.png)
 
 To understand the concept of the type _Never_, first, we must understand the difference between the Dart type system before and after null safety. That was never an easy task for me, but let’s try.
 
@@ -35,7 +35,7 @@ However, by looking at this new Dart types’ structure, we cannot easily identi
 
 Ok, but how about the bottom-most type? For this, the Dart team went _brrrr_ and just simply introduced a new named type called _Never_.
 
-![Dart type system with Never](./dart-type-system-with-never.png)
+![Dart type system with Never](./img/dart-type-system-with-never.png)
 
 This new bottom type has no values. However, you can use it as a type annotation. How, why? Let’s check it out👇🏻
 
