@@ -21,8 +21,6 @@ All the information provided in this article is based on the [official Dart lang
 
 :::
 
----
-
 ## Dart type system before and after null safety
 
 ![Dart type system before (left) and after (right) null safety](./img/dart-type-system.png)
