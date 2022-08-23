@@ -172,4 +172,6 @@ There is no such thing as too much documentation (at least I haven’t been in s
 
 ---
 
-That’s it! Thanks for your time reading this article. Also, let me know what’s your checklist while building a new Flutter application!
+That’s it! Let me know what’s your checklist while building a new Flutter application!
+
+Save trees. Stay SOLID. Thanks for reading.

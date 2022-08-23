@@ -52,7 +52,7 @@ To demonstrate how the application displays design patterns, I have created a ne
 
 First of all, a new data object should be added to the `assets/data/design_patterns.json` containing information about the design pattern (id, title, description and route):
 
-```json
+```json title="design_patterns.json"
 ...
 {
   "id": "introduction",
@@ -65,7 +65,7 @@ First of all, a new data object should be added to the `assets/data/design_patte
 
 Then a markdown file must be added to the `assets/markdown` folder with the same name as the previously set id in the design pattern’s JSON. This markdown would contain information about the design pattern — usually, code snippets with some explanation on how the pattern is implemented. After providing a markdown file, the design pattern should be implemented and its example widget for the design pattern’s screen should be prepared. For this example, I have created a simple _Hello World_ widget (`introduction.dart`):
 
-```dart
+```dart title="introduction.dart"
 class Introduction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -76,9 +76,9 @@ class Introduction extends StatelessWidget {
 }
 ```
 
-Finally, a new route should be added to `router.dart` file by adding the route name to the `DesignPatternRoutes` class (it should match with the route value in the design pattern’s JSON file) and adding a new `DesignPatternDetails` widget with a previously created example (lines 25–32):
+Finally, a new route should be added to `router.dart` file by adding the route name to the `DesignPatternRoutes` class (it should match with the route value in the design pattern’s JSON file) and adding a new `DesignPatternDetails` widget with a previously created example:
 
-```dart
+```dart title="router.dart" {15-22}
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -123,3 +123,5 @@ If I have missed something, do not hesitate to ask or just check the code by you
 ---
 
 I hope this article encouraged you to learn more about OOP, design patterns or programming in general. New articles are on their way so stay tuned and happy coding!
+
+Save trees. Stay SOLID. Thanks for reading.
