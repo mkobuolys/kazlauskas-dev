@@ -4,7 +4,7 @@ title: 11 Things to Remember for Your Next Flutter Project
 tags:
   - Dart
   - Flutter
-  - software architecture
+  - Software Architecture
 ---
 
 _An extensive checklist to kick-off a new Flutter project_

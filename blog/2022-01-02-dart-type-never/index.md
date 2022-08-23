@@ -4,7 +4,7 @@ title: Dart type you have NEVER used
 tags:
   - Dart
   - Never
-  - type safety
+  - Type Safety
 ---
 
 _Dart type system goes: never say never…_
