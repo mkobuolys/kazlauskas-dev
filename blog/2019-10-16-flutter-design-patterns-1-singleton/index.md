@@ -22,7 +22,7 @@ To see all the design patterns in action, check the [Flutter Design Patterns app
 
 ## What is Singleton?
 
-Singleton is a **creational** design pattern that ensures that a class has only one instance and also provides a global point of access to it. The motivation for this pattern is stated in the [GoF book](https://en.wikipedia.org/wiki/Design_Patterns):
+**Singleton** is a **creational** design pattern that ensures that a class has only one instance and also provides a global point of access to it. The motivation for this pattern is stated in the [GoF book](https://en.wikipedia.org/wiki/Design_Patterns):
 
 > _It’s important for some classes to have exactly one instance. Although there can be many printers in a system, there should be only one printer spooler. There should be only one file system and one window manager…_
 
