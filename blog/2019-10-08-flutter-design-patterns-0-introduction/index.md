@@ -16,6 +16,10 @@ Hi, I am Mangirdas, a software engineer and Flutter enthusiast from Lithuania. I
 
 <!--truncate-->
 
+:::tip
+To see all the design patterns in action, check the [Flutter Design Patterns application](https://flutterdesignpatterns.com/).
+:::
+
 ## About the series
 
 In each article of the series, I will overview a design pattern, implement it using Dart programming language, prepare a practical (if possible) example in Flutter and add it to the **Flutter Design Patterns** application. The theoretical part about design patterns would be heavily based on the “Gang of Four” (GoF) book [“Design Patterns: Elements of Reusable Object-Oriented Software”](https://en.wikipedia.org/wiki/Design_Patterns), which, in my opinion, is one of the most iconic software engineering books about software design patterns. This book contains 23 different OOP design patterns, meaning - 23 articles in the series!

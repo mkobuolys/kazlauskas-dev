@@ -16,6 +16,10 @@ First of all, I would like to thank you all for the support after publishing the
 
 <!--truncate-->
 
+:::tip
+To see all the design patterns in action, check the [Flutter Design Patterns application](https://flutterdesignpatterns.com/).
+:::
+
 ## What is Singleton?
 
 Singleton is a **creational** design pattern that ensures that a class has only one instance and also provides a global point of access to it. The motivation for this pattern is stated in the [GoF book](https://en.wikipedia.org/wiki/Design_Patterns):
@@ -237,6 +241,10 @@ Or by navigating to the main menu and back:
 As you can see, the state which is implemented as a Singleton remains the same since a new instance of the state class is not created on the example’s widget rebuild.
 
 All of the code changes for the Singleton design pattern and its example implementation could be found [here](https://github.com/mkobuolys/flutter-design-patterns/pull/1).
+
+:::tip
+To see the pattern in action, check the [interactive Singleton example](https://flutterdesignpatterns.com/pattern/singleton).
+:::
 
 ---
 
