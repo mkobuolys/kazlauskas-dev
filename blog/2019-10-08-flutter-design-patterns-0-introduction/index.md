@@ -40,11 +40,11 @@ OOP design pattern is a typical solution to a common problem in software design.
 
 > _A design pattern names, abstracts, and identifies the key aspects of a common design structure that make it useful for creating a reusable object-oriented design._
 
-A software design pattern is not about solving specific UI/UX problems (as it could look from first sight by noticing the word design), it is more about the code structure which is like a blueprint to solve a particular object-oriented design problem, issue in your code. By applying these patterns, you can speed up the development process, write code that is more flexible, reusable. However, the most difficult part of these patterns is to understand the main idea behind them, to identify places in your code where these patterns could be applied and which problems could be resolved. But that’s what this series is all about — to introduce and provide the basics of several design patterns to help you choose the right one for your specific problem.
+A software design pattern is not about solving specific UI/UX problems (as it could look from first sight by noticing the word design), it is more about the code structure which is like a blueprint to solve a particular object-oriented design problem, or issue in your code. By applying these patterns, you can speed up the development process, write code that is more flexible, reusable. However, the most difficult part of these patterns is to understand the main idea behind them, to identify places in your code where these patterns could be applied and which problems could be resolved. But that’s what this series is all about — to introduce and provide the basics of several design patterns to help you choose the right one for your specific problem.
 
 ## Application overview
 
-As I have already mentioned, by introducing a new design pattern per article, I will also build a **Flutter Design Patterns** Flutter mapplication and expand its design patterns library step-by-step. Of course, this application is open-source and its code is already available on [GitHub](https://github.com/mkobuolys/flutter-design-patterns) for all of you! The application consists only of three different screens — the main menu, design patterns’ category screen and design pattern’s screen.
+As I have already mentioned, by introducing a new design pattern per article, I will also build a **Flutter Design Patterns** Flutter application and expand its design patterns library step-by-step. Of course, this application is open-source and its code is already available on [GitHub](https://github.com/mkobuolys/flutter-design-patterns) for all of you! The application consists only of three different screens — the main menu, design patterns’ category screen and design pattern’s screen.
 
 ![Flutter Design Patterns - Main Menu](./img/main-menu.gif)
 
@@ -80,7 +80,7 @@ class Introduction extends StatelessWidget {
 }
 ```
 
-Finally, a new route should be added to `router.dart` file by adding the route name to the `DesignPatternRoutes` class (it should match with the route value in the design pattern’s JSON file) and adding a new `DesignPatternDetails` widget with a previously created example:
+Finally, a new route should be added to the `router.dart` file by adding the route name to the `DesignPatternRoutes` class (it should match with the route value in the design pattern’s JSON file) and adding a new `DesignPatternDetails` widget with a previously created example:
 
 ```dart title="router.dart" {15-22}
 class Router {

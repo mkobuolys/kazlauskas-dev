@@ -12,7 +12,7 @@ _An overview of Adapter design pattern and its implementation in Dart and Flutte
 
 ![Header image](./img/header.png)
 
-In the last [article](../2019-10-16-flutter-design-patterns-1-singleton/index.md), I have analysed the first design pattern in the series — Singleton, provided some general thoughts about its structure, applicability, pros and cons, implemented it in several different ways. This time, I would like to analyse and implement a design pattern that belongs to the category of structural design patterns — Adapter.
+In the last [article](../2019-10-16-flutter-design-patterns-1-singleton/index.md), I analysed the first design pattern in the series — Singleton, provided some general thoughts about its structure, applicability, pros and cons, implemented it in several different ways. This time, I would like to analyse and implement a design pattern that belongs to the category of structural design patterns — Adapter.
 
 <!--truncate-->
 
@@ -24,11 +24,11 @@ To see all the design patterns in action, check the [Flutter Design Patterns app
 
 ![But they're incompatible](./img/incompatible.gif)
 
-**Adapter** is a **structural** design pattern, also known as **wrapper**. It is one of the most common and most useful design patterns available to us as software developers. The intention of this design pattern is described in the [GoF book](https://en.wikipedia.org/wiki/Design_Patterns):
+**Adapter** is a **structural** design pattern, also known as **wrapper**. It is one of the most common and useful design patterns available to us as software developers. The intention of this design pattern is described in the [GoF book](https://en.wikipedia.org/wiki/Design_Patterns):
 
 > _Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn’t otherwise because of incompatible interfaces._
 
-Let’s say you want to use some kind of a third-party library that has the functionality you need. Also, you have a class that needs to utilize a particular interface, but interfaces between your code and the library are incompatible. In this case, you can use the library’s code by creating an adapter class that “sits” between your code and the code you want to use from that library. Moreover, the pattern is useful when you want to ensure that some particular piece of code in your software could be reused by wrapping it with an adapter and exposing an interface to it. This lets the future implementations in your code depend on Adapter interfaces, rather than concrete classes directly. Sounds good already? Well, let’s move to the analysis to understand how this pattern works and how it could be implemented.
+Let’s say you want to use some kind of third-party library that has the functionality you need. Also, you have a class that needs to utilize a particular interface, but interfaces between your code and the library are incompatible. In this case, you can use the library’s code by creating an adapter class that “sits” between your code and the code you want to use from that library. Moreover, the pattern is useful when you want to ensure that some particular piece of code in your software could be reused by wrapping it with an adapter and exposing an interface to it. This lets the future implementations in your code depend on Adapter interfaces, rather than concrete classes directly. Sounds good already? Well, let’s move to the analysis to understand how this pattern works and how it could be implemented.
 
 ## Analysis
 
@@ -51,8 +51,8 @@ To begin with, both object and class adapters are valid implementations of the A
 
 My personal choice between these two possible implementations is the **object adapter**. Here are the reasons why:
 
-1. In order to implement the Adapter design pattern using the class adapter method, the programming language of your choice must support multiple inheritance. In Dart, multiple inheritance is not supported.
-2. One of the advantages of a class adapter is that you can easily override the behaviour of the adaptee class — you extend the adaptee class, right? However, the object adapter method is more flexible since it commits to an Adaptee class at run-time (client and adaptee code are loosely-coupled). It means that you can create a single adapter that could use multiple different adaptees as long as their interfaces (types) matches the one adapter requires.
+1. To implement the Adapter design pattern using the class adapter method, the programming language of your choice must support multiple inheritance. In Dart, multiple inheritance is not supported.
+2. One of the advantages of a class adapter is that you can easily override the behaviour of the adaptee class — you extend the adaptee class, right? However, the object adapter method is more flexible since it commits to an Adaptee class at run-time (client and adaptee code are loosely coupled). It means that you can create a single adapter that could use multiple different adaptees as long as their interfaces (types) matches the one adapter requires.
 3. I prefer composition over inheritance. What I bear in my mind, if you try to reuse the code by inhering it from a class, you make the subclass dependent on the parent class. When using composition, you decouple your code by providing interfaces which implementations can be easily replaced (in this case, the implementation of _Adaptee_ could be replaced inside the _Adapter_ class at run-time). This is only a glimpse of the Liskov substitution principle (the letter **L** in [**SOLID**](https://en.wikipedia.org/wiki/SOLID) principles), which is pretty difficult to understand and apply, but it is worth the effort.
 
 ### Applicability

@@ -12,7 +12,7 @@ _An overview of Singleton design pattern and its implementation in Dart and Flut
 
 ![Header image](./img/header.png)
 
-First of all, I would like to thank you all for the support after publishing the [introduction article](../2019-10-08-flutter-design-patterns-0-introduction/index.md) to this series. Honestly, I have not expected that amount of people to not only be interested in the creation of mobile applications using Flutter but who are also willing to learn more about the Dart language itself, OOP design patterns and their appliance, code architecture or software engineering in general. This encouraged me to dive straight into the research, coding, and hence, I present you the first design pattern in the series — Singleton.
+First of all, I would like to thank you all for the support after publishing the [introduction article](../2019-10-08-flutter-design-patterns-0-introduction/index.md) to this series. Honestly, I have not expected that amount of people to not only be interested in the creation of mobile applications using Flutter but who are also willing to learn more about the Dart language itself, OOP design patterns and their appliance, code architecture or software engineering in general. This encouraged me to dive straight into the research, coding, and hence, I present to you the first design pattern in the series — Singleton.
 
 <!--truncate-->
 
@@ -55,7 +55,7 @@ Singleton could be used in cases where creating the instance of a class is expen
 
 ## Implementation
 
-We will use the Singleton design pattern to save our Singleton example’s state in the Flutter Design Patterns application. To make it more straightforward, the state saves only a single text property. Example’s state itself is implemented in three different ways:
+We will use the Singleton design pattern to save our Singleton example’s state in the Flutter Design Patterns application. To make it more straightforward, the state saves only a single text property. The example’s state itself is implemented in three different ways:
 
 - Using a Singleton design pattern which is implemented by definition;
 - Using a Singleton design pattern which is implemented using the Dart language capabilities;
@@ -63,7 +63,7 @@ We will use the Singleton design pattern to save our Singleton example’s state
 
 ### ExampleStateBase
 
-Since the example’s state is implemented in several different ways, its abstraction was created in order to reuse it in all of the implementations. Hence, class `ExampleStateBase` provides this abstracted state:
+Since the example’s state is implemented in several different ways, its abstraction was created to reuse it in all of the implementations. Hence, class `ExampleStateBase` provides this abstracted state:
 
 ```dart title="example_state_base.dart"
 abstract class ExampleStateBase {
@@ -83,7 +83,7 @@ abstract class ExampleStateBase {
 }
 ```
 
-As already mentioned, the example’s state consists only of a single String property `stateText` and its initial value `initialText`. Properties `stateText` ant `initialText` are marked as **protected** — it is needed to make these properties accessible only for those classes which extend the `ExampleStateBase` class. However, Dart does not support the _protected_ visibility in the same way as some of you could expect it to be coming from the other OOP language’s background such as C# or Java — we can only annotate these properties as _protected_ but it is more as a reminder for the developer not to use them from outside of the class scope (Visual Studio Code editor even shows a warning in this case). Also, `ExampleStateBase` provides methods to operate the `stateText`.
+As already mentioned, the example’s state consists only of a single String property `stateText` and its initial value `initialText`. Properties `stateText` and `initialText` are marked as **protected** — it is needed to make these properties accessible only for those classes which extend the `ExampleStateBase` class. However, Dart does not support the _protected_ visibility in the same way as some of you could expect it to be coming from the other OOP language’s background such as C# or Java — we can only annotate these properties as _protected_ but it is more as a reminder for the developer not to use them from outside of the class scope (Visual Studio Code editor even shows a warning in this case). Also, `ExampleStateBase` provides methods to operate the `stateText`.
 
 ### Singleton’s implementation by definition
 
@@ -132,7 +132,7 @@ class ExampleState extends ExampleStateBase {
 }
 ```
 
-By comparing this code with the previous implementation, you could notice that the static method `getState()` is missing — well, it is just not needed anymore! Dart language provides a **factory constructor**. It is used to implement a constructor that does not always create a new instance of its class — it is a nice and elegant way to implement the class as a Singleton, isn’t it? Now you can create the instance of `ExampleState` class by calling its factory constructor in the same manner as you would do that by calling a default one — factory constructor will create a new instance or return the existing one if it was already initiated.
+By comparing this code with the previous implementation, you could notice that the static method `getState()` is missing — well, it is just not needed anymore! Dart language provides a **factory constructor**. It is used to implement a constructor that does not always create a new instance of its class — it is a nice and elegant way to implement the class as a Singleton, isn’t it? Now you can create the instance of the `ExampleState` class by calling its factory constructor in the same manner as you would do that by calling a default one — the factory constructor will create a new instance or return the existing one if it was already initiated.
 
 ### ExampleStateWithoutSingleton
 
