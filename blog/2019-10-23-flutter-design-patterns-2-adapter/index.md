@@ -8,7 +8,7 @@ tags:
   - Design Patterns
 ---
 
-_An overview of Adapter design pattern and its implementation in Dart and Flutter_
+_An overview of the Adapter design pattern and its implementation in Dart and Flutter_
 
 ![Header image](./img/header.png)
 

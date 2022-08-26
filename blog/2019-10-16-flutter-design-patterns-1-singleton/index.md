@@ -8,7 +8,7 @@ tags:
   - Design Patterns
 ---
 
-_An overview of Singleton design pattern and its implementation in Dart and Flutter_
+_An overview of the Singleton design pattern and its implementation in Dart and Flutter_
 
 ![Header image](./img/header.png)
 

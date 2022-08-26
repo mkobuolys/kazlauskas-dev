@@ -34,6 +34,8 @@ const config = {
       ({
         docs: false,
         blog: {
+          blogSidebarTitle: "All blog posts",
+          blogSidebarCount: "ALL",
           editUrl: "https://github.com/mkobuolys/kazlauskas-dev/tree/main/",
           routeBasePath: "/",
           showReadingTime: true,
