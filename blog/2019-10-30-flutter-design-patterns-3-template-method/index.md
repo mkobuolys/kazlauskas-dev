@@ -1,5 +1,5 @@
 ---
-slug: 2019-10-30-flutter-design-patterns-3-template-method
+slug: flutter-design-patterns-3-template-method
 title: "Flutter Design Patterns: Template Method"
 tags:
   - Dart
@@ -76,7 +76,7 @@ Let's say, in the Flutter application we want to create an algorithm that calcul
 
 ### Class diagram
 
-The class diagram below shows the implementation of the Template Method design pattern.
+The class diagram below shows the implementation of the Template Method design pattern:
 
 ![Class Diagram - Implementation of the Template Method design pattern](./img/template_method_implementation.png)
 

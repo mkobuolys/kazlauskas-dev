@@ -67,7 +67,7 @@ Let’s say, in the Flutter application we want to collect our contacts from two
 
 ### Class diagram
 
-The class diagram below shows the implementation of the Adapter design pattern using the **object adapter** method.
+The class diagram below shows the implementation of the Adapter design pattern using the **object adapter** method:
 
 ![Class Diagram — Implementation of the Adapter design pattern](./img/adapter_implementation.png)
 

@@ -3,7 +3,7 @@ slug: dart-type-you-have-never-used
 title: Dart type you have NEVER used
 tags:
   - Dart
-  - Never
+  - Type Never
   - Type Safety
 ---
 
