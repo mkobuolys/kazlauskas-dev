@@ -407,7 +407,7 @@ class OrderSummary extends StatelessWidget {
 
 The final result of the Strategy design pattern's implementation looks like this:
 
-![Composite example](./img/example.gif)
+![Strategy example](./img/example.gif)
 
 As you can see in the example, the shipping costs calculation strategy could be changed at run-time and the total order price is recalculated.
 
