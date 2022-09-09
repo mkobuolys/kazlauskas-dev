@@ -55,7 +55,7 @@ The Composite design pattern should be used when you want to represent part-whol
 
 This time the implementation of the design pattern is more visual (finally!) and would make more sense in the Flutter context (yes, I do consider your feedback, so do not hesitate to share your insights about the series - it helps me improve the quality of the content a lot!). Let's say, we want to represent the structure of our file system. The file system consists of directories and files of various types: audio, video, images, text files, etc. Files are stored inside directories, also, directories could be stored inside other directories. For instance, our file structure could look like this:
 
-![Filu structure example](./img/file_structure.png)
+![File structure example](./img/file_structure.png)
 
 Besides, we want to show the size of each file or directory. It is easy to show it for a concrete file, but the directory size depends on the items inside it and should be calculated. To implement this, the Composite design pattern is a great option!
 
