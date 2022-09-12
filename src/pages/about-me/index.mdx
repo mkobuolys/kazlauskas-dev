@@ -1,1 +1,12 @@
-Hello, it's me
+import ThemedImage from "@theme/ThemedImage";
+import ProfilePictureLight from "./img/profile_picture_light.png";
+import ProfilePictureDark from "./img/profile_picture_dark.png";
+
+<ThemedImage
+  alt="Profile picture"
+  width={500}
+  sources={{
+    light: ProfilePictureLight,
+    dark: ProfilePictureDark,
+  }}
+/>
