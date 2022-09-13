@@ -7,7 +7,7 @@ import styles from './styles.module.css';
 
 export default function AboutMe() {
   return (
-    <Layout>
+    <Layout title="About me">
       <main className="margin--lg">
         <div className="container">
           <div className="row">
