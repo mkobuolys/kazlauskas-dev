@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-2-adapter
 title: "Flutter Design Patterns: Adapter"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-0-introduction
 title: "Flutter Design Patterns: Introduction"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

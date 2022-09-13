@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-22-mediator
 title: "Flutter Design Patterns: Mediator"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-6-state
 title: "Flutter Design Patterns: State"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

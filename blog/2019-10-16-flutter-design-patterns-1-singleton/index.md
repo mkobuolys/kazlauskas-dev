@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-1-singleton
 title: "Flutter Design Patterns: Singleton"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-19-flyweight
 title: "Flutter Design Patterns: Flyweight"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

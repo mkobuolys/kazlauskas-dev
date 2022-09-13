@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-11-abstract-factory
 title: "Flutter Design Patterns: Abstract Factory"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

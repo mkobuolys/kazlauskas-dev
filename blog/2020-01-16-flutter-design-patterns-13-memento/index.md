@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-13-memento
 title: "Flutter Design Patterns: Memento"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

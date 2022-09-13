@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-17-bridge
 title: "Flutter Design Patterns: Bridge"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

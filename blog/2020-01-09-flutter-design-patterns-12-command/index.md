@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-12-command
 title: "Flutter Design Patterns: Command"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

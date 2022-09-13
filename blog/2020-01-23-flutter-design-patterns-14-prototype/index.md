@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-14-prototype
 title: "Flutter Design Patterns: Prototype"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

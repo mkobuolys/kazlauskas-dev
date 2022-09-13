@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-15-proxy
 title: "Flutter Design Patterns: Proxy"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

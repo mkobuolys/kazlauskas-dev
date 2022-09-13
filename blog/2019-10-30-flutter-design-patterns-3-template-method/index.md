@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-3-template-method
 title: "Flutter Design Patterns: Template Method"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

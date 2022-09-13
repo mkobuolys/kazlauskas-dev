@@ -1,6 +1,7 @@
 ---
 slug: dart-type-you-have-never-used
 title: Dart type you have NEVER used
+authors: mkobuolys
 tags:
   - Dart
   - Type Never

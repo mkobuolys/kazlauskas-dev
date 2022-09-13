@@ -1,6 +1,7 @@
 ---
 slug: flutter-shopping-app-prototype
 title: "Flutter Shopping App prototype: Lessons learned"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

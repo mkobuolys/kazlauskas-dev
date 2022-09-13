@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-8-interpreter
 title: "Flutter Design Patterns: Interpreter"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

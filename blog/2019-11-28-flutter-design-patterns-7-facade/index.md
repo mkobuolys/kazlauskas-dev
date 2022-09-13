@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-7-facade
 title: "Flutter Design Patterns: Facade"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

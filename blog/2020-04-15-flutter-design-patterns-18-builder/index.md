@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-18-builder
 title: "Flutter Design Patterns: Builder"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

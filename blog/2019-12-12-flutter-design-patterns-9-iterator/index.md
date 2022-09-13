@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-9-iterator
 title: "Flutter Design Patterns: Iterator"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

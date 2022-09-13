@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-23-observer
 title: "Flutter Design Patterns: Observer"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

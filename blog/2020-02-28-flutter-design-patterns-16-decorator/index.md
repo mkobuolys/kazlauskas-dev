@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-16-decorator
 title: "Flutter Design Patterns: Decorator"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

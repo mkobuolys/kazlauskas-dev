@@ -1,6 +1,7 @@
 ---
 slug: 11-things-to-remember-for-your-next-flutter-project
 title: 11 Things to Remember for Your Next Flutter Project
+authors: mkobuolys
 tags:
   - Dart
   - Flutter

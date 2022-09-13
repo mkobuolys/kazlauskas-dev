@@ -1,6 +1,7 @@
 ---
 slug: flutter-design-patterns-21-visitor
 title: "Flutter Design Patterns: Visitor"
+authors: mkobuolys
 tags:
   - Dart
   - Flutter
