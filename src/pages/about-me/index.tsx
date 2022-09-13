@@ -4,6 +4,8 @@ import ThemedImage from "@theme/ThemedImage";
 import Layout from '@theme/Layout';
 import CodeBlock from '@theme/CodeBlock';
 import styles from './styles.module.css';
+import ProfilePictureLight from './img/profile_picture_light.png';
+import ProfilePictureDark from './img/profile_picture_dark.png';
 
 export default function AboutMe() {
   return (
@@ -16,8 +18,8 @@ export default function AboutMe() {
                 alt="Profile picture"
                 width={400}
                 sources={{
-                  light: require("./img/profile_picture_light.png").default,
-                  dark: require("./img/profile_picture_dark.png").default,
+                  light: ProfilePictureLight,
+                  dark: ProfilePictureDark,
                 }}
               />
             </div>
