@@ -33,3 +33,4 @@ jobs:
           username: kaskas
           password: ${{ secrets.ftp_password }}
           local-dir: ./build/
+          server-dir: public_html/
