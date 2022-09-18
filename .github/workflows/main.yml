@@ -8,20 +8,21 @@ on:
 
 jobs:
   web-deploy:
-    name: 🚀 Deploy
+    name: 🚀 Deploy to kazlauskas.dev
     runs-on: ubuntu-latest
 
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
 
-      - name: 📦 Install dependencies
+      - name: 📦 Setup dependencies
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
+          cache: "npm"
+        run: npm ci
 
-      - name: 🔨 Build
+      - name: 🔨 Build website
         run: npm run build
 
       - name: 📂 Sync files
@@ -31,4 +32,3 @@ jobs:
           username: kaskas
           password: ${{ secrets.ftp_password }}
           local-dir: ./build/
-          dry-run: true
