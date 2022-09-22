@@ -10,6 +10,7 @@ const config = {
   tagline: "Welcome to my personal blog",
   url: "https://kazlauskas.dev",
   baseUrl: "/",
+  trailingSlash: true,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
