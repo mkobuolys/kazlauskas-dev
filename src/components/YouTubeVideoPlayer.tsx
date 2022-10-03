@@ -2,10 +2,21 @@ import React from "react";
 
 type YouTubeVideoPlayerProps = {
   src: string;
+  style?: React.CSSProperties;
 };
 
-export const YouTubeVideoPlayer = ({ src }: YouTubeVideoPlayerProps) => (
-  <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+export const YouTubeVideoPlayer = ({
+  src,
+  style = {},
+}: YouTubeVideoPlayerProps) => (
+  <div
+    style={{
+      ...style,
+      position: "relative",
+      paddingBottom: "56.25%",
+      height: 0,
+    }}
+  >
     <iframe
       style={{
         position: "absolute",

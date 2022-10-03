@@ -12,9 +12,9 @@ _Creating a fun Flutter form validation animation in 15 minutes or less_
 
 ![Header image](./img/header.gif)
 
-<!--truncate-->
-
 In this short tutorial, we will create a _NOPE_ form validation animation in Flutter. All you need is a basic understanding of Flutter and Dart. Let's get started!
+
+<!--truncate-->
 
 ## Initial code
 
