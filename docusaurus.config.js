@@ -64,6 +64,10 @@ const config = {
             to: "/about-me",
           },
           {
+            label: "Subscribe 🙏",
+            to: "https://pages.kazlauskas.dev/subscribe",
+          },
+          {
             label: "Flutter Design Patterns",
             href: "https://flutterdesignpatterns.com",
             position: "right",
@@ -79,6 +83,10 @@ const config = {
               {
                 label: "About me",
                 to: "/about-me",
+              },
+              {
+                label: "Subscribe 🙏",
+                to: "https://pages.kazlauskas.dev/subscribe",
               },
             ],
           },
