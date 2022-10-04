@@ -417,7 +417,3 @@ All of the code changes for the Strategy design pattern and its example implemen
 :::tip
 To see the pattern in action, check the [interactive Strategy example](https://flutterdesignpatterns.com/pattern/strategy).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

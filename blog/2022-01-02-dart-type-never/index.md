@@ -94,7 +94,3 @@ Notice that `email` and `password` are required properties when creating the `Us
 > _In other words, using **Never** in your own APIs lets you extend Dart’s reachability analysis._
 
 In my opinion, there is not much difference between throwing a custom exception and using a helper function of type _Never_. However, if you find such implementation convenient, feel free to use it in your code!
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

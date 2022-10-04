@@ -428,7 +428,3 @@ All of the code changes for the Chain of Responsibility design pattern and its e
 :::tip
 To see the pattern in action, check the [interactive Chain of Responsibility example](https://flutterdesignpatterns.com/pattern/chain-of-responsibility).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

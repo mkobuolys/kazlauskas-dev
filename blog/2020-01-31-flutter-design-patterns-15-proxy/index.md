@@ -329,7 +329,3 @@ All of the code changes for the Proxy design pattern and its example implementat
 :::tip
 To see the pattern in action, check the [interactive Proxy example](https://flutterdesignpatterns.com/pattern/proxy).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

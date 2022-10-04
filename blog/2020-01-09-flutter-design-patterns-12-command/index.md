@@ -355,7 +355,3 @@ All of the code changes for the Command design pattern and its example implement
 :::tip
 To see the pattern in action, check the [interactive Command example](https://flutterdesignpatterns.com/pattern/command).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

@@ -125,8 +125,6 @@ That’s all! After these steps, a new design pattern is available in the **Flut
 
 If I have missed something, do not hesitate to ask or just check the code by yourself, it is open and free for use!
 
----
+## Summary
 
 I hope this article encouraged you to learn more about OOP, design patterns or programming in general. New articles are on their way so stay tuned and happy coding!
-
-Save trees. Stay SOLID. Thanks for reading.

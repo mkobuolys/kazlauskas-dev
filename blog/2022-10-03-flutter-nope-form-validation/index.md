@@ -331,7 +331,3 @@ That's what I call animation state management! 🤓
 ## Summary
 
 In this article, we have learned how to create a custom form with a button that animates from left to right when the form is invalid - the _NOPE_ effect. We have also learned how to use the `onHover` event to trigger the animation. The code and the demo are available on [DartPad](https://dartpad.dev/b0fc02fd44ce51a826bf19cac1a9c119). I hope you enjoyed this article and learned something new. Cheers! 🚀
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

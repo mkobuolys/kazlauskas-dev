@@ -444,7 +444,3 @@ All of the code changes for the Facade design pattern and its example implementa
 :::tip
 To see the pattern in action, check the [interactive Facade example](https://flutterdesignpatterns.com/pattern/facade).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

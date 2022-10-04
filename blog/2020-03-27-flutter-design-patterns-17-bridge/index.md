@@ -470,7 +470,3 @@ All of the code changes for the Bridge design pattern and its example implementa
 :::tip
 To see the pattern in action, check the [interactive Bridge example](https://flutterdesignpatterns.com/pattern/bridge).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

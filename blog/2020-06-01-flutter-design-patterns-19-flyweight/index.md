@@ -361,7 +361,3 @@ All of the code changes for the Flyweight design pattern and its example impleme
 :::tip
 To see the pattern in action, check the [interactive Flyweight example](https://flutterdesignpatterns.com/pattern/flyweight).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

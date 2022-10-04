@@ -307,7 +307,3 @@ All of the code changes for the Prototype design pattern and its example impleme
 :::tip
 To see the pattern in action, check the [interactive Prototype example](https://flutterdesignpatterns.com/pattern/prototype).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

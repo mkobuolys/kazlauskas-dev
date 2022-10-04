@@ -469,7 +469,3 @@ All of the code changes for the Iterator design pattern and its example implemen
 :::tip
 To see the pattern in action, check the [interactive Iterator example](https://flutterdesignpatterns.com/pattern/iterator).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

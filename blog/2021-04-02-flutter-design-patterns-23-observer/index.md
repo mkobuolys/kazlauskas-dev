@@ -441,7 +441,3 @@ All of the code changes for the Observer design pattern and its example implemen
 :::tip
 To see the pattern in action, check the [interactive Observer example](https://flutterdesignpatterns.com/pattern/observer).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

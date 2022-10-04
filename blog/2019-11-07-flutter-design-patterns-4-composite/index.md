@@ -340,7 +340,3 @@ All of the code changes for the Composite design pattern and its example impleme
 :::tip
 To see the pattern in action, check the [interactive Composite example](https://flutterdesignpatterns.com/pattern/composite).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

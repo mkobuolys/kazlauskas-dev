@@ -171,8 +171,6 @@ Have you just introduced a new solution that requires code generation? Have you 
 
 There is no such thing as too much documentation (at least I haven’t been in such a situation) only the lack of information about the project and code. All the commands to generate, test and run the code, various file structure decisions, diagrams, external tools and services, information about different environments (WITHOUT SECRET KEYS) should be put here and kept in a single place. This is boring work but a very rewarding one!
 
----
+## Summary
 
 That’s it! Let me know what’s your checklist while building a new Flutter application!
-
-Save trees. Stay SOLID. Thanks for reading.

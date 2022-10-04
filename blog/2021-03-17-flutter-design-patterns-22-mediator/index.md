@@ -369,7 +369,3 @@ All of the code changes for the Mediator design pattern and its example implemen
 :::tip
 To see the pattern in action, check the [interactive Mediator example](https://flutterdesignpatterns.com/pattern/mediator).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

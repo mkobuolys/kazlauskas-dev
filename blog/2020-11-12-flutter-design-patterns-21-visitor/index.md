@@ -745,7 +745,3 @@ All of the code changes for the Visitor design pattern and its example implement
 :::tip
 To see the pattern in action, check the [interactive Visitor example](https://flutterdesignpatterns.com/pattern/visitor).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

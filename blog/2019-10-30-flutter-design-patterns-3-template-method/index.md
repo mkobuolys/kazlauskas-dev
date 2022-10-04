@@ -465,7 +465,3 @@ All of the code changes for the Template Method design pattern and its example i
 :::tip
 To see the pattern in action, check the [interactive Template Method example](https://flutterdesignpatterns.com/pattern/template-method).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

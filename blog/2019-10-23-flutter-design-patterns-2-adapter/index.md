@@ -370,7 +370,3 @@ All of the code changes for the Adapter design pattern and its example implement
 :::tip
 To see the pattern in action, check the [interactive Adapter example](https://flutterdesignpatterns.com/pattern/adapter).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

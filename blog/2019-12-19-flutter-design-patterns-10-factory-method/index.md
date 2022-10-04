@@ -249,7 +249,3 @@ All of the code changes for the Factory Method design pattern and its example im
 :::tip
 To see the pattern in action, check the [interactive Factory Method example](https://flutterdesignpatterns.com/pattern/factory-method).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

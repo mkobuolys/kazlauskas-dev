@@ -410,7 +410,3 @@ All of the code changes for the Interpreter design pattern and its example imple
 :::tip
 To see the pattern in action, check the [interactive Interpreter example](https://flutterdesignpatterns.com/pattern/interpreter).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

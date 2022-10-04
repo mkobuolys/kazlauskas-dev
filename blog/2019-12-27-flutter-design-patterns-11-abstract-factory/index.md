@@ -413,7 +413,3 @@ All of the code changes for the Abstract Factory design pattern and its example 
 :::tip
 To see the pattern in action, check the [interactive Abstract Factory example](https://flutterdesignpatterns.com/pattern/abstract-factory).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

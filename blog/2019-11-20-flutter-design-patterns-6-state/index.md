@@ -367,7 +367,3 @@ All of the code changes for the State design pattern and its example implementat
 :::tip
 To see the pattern in action, check the [interactive State example](https://flutterdesignpatterns.com/pattern/state).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

@@ -323,7 +323,3 @@ All of the code changes for the Memento design pattern and its example implement
 :::tip
 To see the pattern in action, check the [interactive Memento example](https://flutterdesignpatterns.com/pattern/memento).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

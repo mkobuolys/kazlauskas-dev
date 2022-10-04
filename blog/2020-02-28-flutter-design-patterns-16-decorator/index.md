@@ -519,7 +519,3 @@ All of the code changes for the Decorator design pattern and its example impleme
 :::tip
 To see the pattern in action, check the [interactive Decorator example](https://flutterdesignpatterns.com/pattern/decorator).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

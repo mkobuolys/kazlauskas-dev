@@ -171,7 +171,3 @@ In the beginning, it could sound like a utopia, but it is very achievable. Flutt
 ## Summary
 
 These were the main insights and ideas behind this (not so) simple Flutter Shopping App prototype. Now, I would recommend diving deeper into the code, seeing how different patterns were applied, how the state management is implemented, what classes were generated and so on. If you have any questions - do not hesitate to ask me directly, I am more than happy to answer them.
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

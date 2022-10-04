@@ -680,7 +680,3 @@ All of the code changes for the Builder design pattern and its example implement
 :::tip
 To see the pattern in action, check the [interactive Builder example](https://flutterdesignpatterns.com/pattern/builder).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.

@@ -1,11 +1,11 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from "react";
+import clsx from "clsx";
 import ThemedImage from "@theme/ThemedImage";
-import Layout from '@theme/Layout';
-import CodeBlock from '@theme/CodeBlock';
-import styles from './styles.module.css';
-import ProfilePictureLight from './img/profile_picture_light.png';
-import ProfilePictureDark from './img/profile_picture_dark.png';
+import Layout from "@theme/Layout";
+import CodeBlock from "@theme/CodeBlock";
+import styles from "./styles.module.css";
+import ProfilePictureLight from "./img/profile_picture_light.png";
+import ProfilePictureDark from "./img/profile_picture_dark.png";
 
 export default function AboutMe() {
   return (
@@ -24,9 +24,7 @@ export default function AboutMe() {
               />
             </div>
             <div className="col col--8">
-              <CodeBlock
-                language="dart"
-                title="about_me.dart">
+              <CodeBlock language="dart" title="about_me.dart">
                 {`/// Labas 👋, nice to meet you!
 class AboutMe {
   final fullName = 'Mangirdas Kazlauskas';

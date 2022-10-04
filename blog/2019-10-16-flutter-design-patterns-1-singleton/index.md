@@ -246,7 +246,3 @@ All of the code changes for the Singleton design pattern and its example impleme
 :::tip
 To see the pattern in action, check the [interactive Singleton example](https://flutterdesignpatterns.com/pattern/singleton).
 :::
-
----
-
-Save trees. Stay SOLID. Thanks for reading.
