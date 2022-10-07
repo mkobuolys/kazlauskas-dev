@@ -42,7 +42,7 @@ For your Dart and Flutter projects on GitHub, you could check the dependency gra
 
 - [Dependabot alerts](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) and [security updates](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates) - an automated way to alert about security vulnerabilities in the repository and to keep the dependencies up-to-date by creating a pull-request with the latest version of the dependency.
 
-![Dependabot alerts](./img/dependency_graph.png)
+![Dependabot alerts](./img/dependabot_alerts.png)
 
 ## Enabling supply chain security features on GitHub
 
