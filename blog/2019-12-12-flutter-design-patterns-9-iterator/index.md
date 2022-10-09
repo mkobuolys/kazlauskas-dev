@@ -7,6 +7,7 @@ tags:
   - Flutter
   - OOP
   - Design Patterns
+image: ./img/header.png
 ---
 
 _An overview of the Iterator design pattern and its implementation in Dart and Flutter_

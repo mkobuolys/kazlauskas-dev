@@ -6,6 +6,7 @@ tags:
   - Dart
   - GitHub
   - Security
+image: ./img/header.png
 ---
 
 _Enabling supply chain security features for Dart and Flutter projects on GitHub_

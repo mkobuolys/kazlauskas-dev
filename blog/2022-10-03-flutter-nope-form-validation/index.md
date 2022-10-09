@@ -6,6 +6,7 @@ tags:
   - Flutter
   - Dart
   - Animations
+image: ./img/header.gif
 ---
 
 _Creating a fun Flutter form validation animation in 15 minutes or less_

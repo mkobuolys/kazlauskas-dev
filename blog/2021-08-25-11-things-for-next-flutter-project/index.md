@@ -6,6 +6,7 @@ tags:
   - Dart
   - Flutter
   - Software Architecture
+image: ./img/header.png
 ---
 
 _An extensive checklist to kick-off a new Flutter project_

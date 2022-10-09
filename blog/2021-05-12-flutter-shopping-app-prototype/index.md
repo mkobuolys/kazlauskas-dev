@@ -6,6 +6,7 @@ tags:
   - Dart
   - Flutter
   - Software Architecture
+image: ./img/header.png
 ---
 
 _Some insights on how to implement a production-quality app using Dart + Flutter_

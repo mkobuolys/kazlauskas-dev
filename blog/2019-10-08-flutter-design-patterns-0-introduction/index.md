@@ -7,6 +7,7 @@ tags:
   - Flutter
   - OOP
   - Design Patterns
+image: ./img/header.png
 ---
 
 _Introduction to a series of articles about OOP design patterns and their implementation in Dart and Flutter_

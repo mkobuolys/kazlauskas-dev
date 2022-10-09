@@ -6,6 +6,7 @@ tags:
   - Dart
   - Type Never
   - Type Safety
+image: ./img/header.png
 ---
 
 _Dart type system goes: never say never…_
