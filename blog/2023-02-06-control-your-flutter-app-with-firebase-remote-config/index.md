@@ -621,6 +621,8 @@ Start the experiment and now patiently wait for the results. To validate the A/B
 Remember that it could take up to 24 hours for the experiment to start receiving data.
 :::
 
+### A/B test results
+
 After some time, you should see the results in the A/B test dashboard.
 
 ![Firebase console - A/B test results](./img/firebase_ab_test_results.png)
