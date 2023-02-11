@@ -37,15 +37,17 @@ class AboutMe {
   final skills = [
     'Product Development',
     'Content Creation',
+    'Public Speaking',
     'Mentoring',
     'Googling',
     'Memes',
   ];
   final social = {
     'Twitter': 'https://twitter.com/mkobuolys',
-    'LinkedIn': 'https://www.linkedin.com/in/mangirdas-kazlauskas',
+    'LinkedIn': 'https://linkedin.com/in/mangirdas-kazlauskas',
     'GitHub': 'https://github.com/mkobuolys',
-    'YouTube': 'https://www.youtube.com/mkobuolys',
+    'YouTube': 'https://youtube.com/@mkobuolys',
+    'Sessionize': 'https://sessionize.com/mangirdas-kazlauskas/',
   };
 }`}
               </CodeBlock>

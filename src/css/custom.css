@@ -28,3 +28,20 @@
   --ifm-color-primary-lightest: #bedafb;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.navbar-icon {
+  border-radius: 50%;
+  display: flex;
+  height: 32px;
+  width: 32px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  padding: 0;
+  transition: background var(--ifm-transition-fast);
+}
+
+.navbar-icon:hover {
+  background: var(--ifm-color-emphasis-200);
+  color: inherit;
+}
