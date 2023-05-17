@@ -110,16 +110,14 @@ All the specific loggers use or inject the `LogBloc` class to mock the actual lo
 
 ### LogLevel
 
-A special kind of class - *enumeration* - to define different log levels. Also, there is a LogLevelExtensions defined where the operator <= is overridden to compare whether one log level is lower or equal to the other.
+A special kind of class - *enumeration* - to define different log levels. Also, the `<=` operator is overridden to compare whether one log level is lower or equal to the other.
 
 ```dart title="log_level.dart"
 enum LogLevel {
-  Debug,
-  Info,
-  Error,
-}
+  debug,
+  info,
+  error;
 
-extension LogLevelExtensions on LogLevel {
   bool operator <=(LogLevel logLevel) => index <= logLevel.index;
 }
 ```
@@ -130,41 +128,30 @@ A simple class to store information about the log entry: log level and message. 
 
 ```dart title="log_message.dart"
 class LogMessage {
-  final LogLevel logLevel;
-  final String message;
-
   const LogMessage({
     required this.logLevel,
     required this.message,
   });
 
+  final LogLevel logLevel;
+  final String message;
+
   String get _logLevelString =>
       logLevel.toString().split('.').last.toUpperCase();
 
-  Color _getLogEntryColor() {
-    switch (logLevel) {
-      case LogLevel.Debug:
-        return Colors.grey;
-      case LogLevel.Info:
-        return Colors.blue;
-      case LogLevel.Error:
-        return Colors.red;
-      default:
-        throw Exception("Log level '$logLevel' is not supported.");
-    }
-  }
+  Color _getLogEntryColor() => switch (logLevel) {
+        LogLevel.debug => Colors.grey,
+        LogLevel.info => Colors.blue,
+        LogLevel.error => Colors.red,
+      };
 
-  Widget getFormattedMessage() {
-    return Text(
-      '$_logLevelString: $message',
-      style: TextStyle(
-        color: _getLogEntryColor(),
-      ),
-      textAlign: TextAlign.justify,
-      overflow: TextOverflow.ellipsis,
-      maxLines: 2,
-    );
-  }
+  Widget getFormattedMessage() => Text(
+        '$_logLevelString: $message',
+        style: TextStyle(color: _getLogEntryColor()),
+        textAlign: TextAlign.justify,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 2,
+      );
 }
 ```
 
@@ -175,8 +162,7 @@ A Business Logic component (BLoC) class to store log messages and provide them t
 ```dart title="log_bloc.dart"
 class LogBloc {
   final List<LogMessage> _logs = [];
-  final StreamController<List<LogMessage>> _logStream =
-      StreamController<List<LogMessage>>();
+  final _logStream = StreamController<List<LogMessage>>();
 
   StreamSink<List<LogMessage>> get _inLogStream => _logStream.sink;
   Stream<List<LogMessage>> get outLogStream => _logStream.stream;
@@ -198,9 +184,9 @@ A simple class that represents the actual external logging service. Instead of s
 
 ```dart title="external_logging_service.dart"
 class ExternalLoggingService {
-  final LogBloc logBloc;
+  const ExternalLoggingService(this.logBloc);
 
-  ExternalLoggingService(this.logBloc);
+  final LogBloc logBloc;
 
   void logMessage(LogLevel logLevel, String message) {
     final logMessage = LogMessage(logLevel: logLevel, message: message);
@@ -219,9 +205,9 @@ A simple class that represents the actual mail logging service. Instead of sendi
 
 ```dart title="mail_service.dart"
 class MailService {
-  final LogBloc logBloc;
+  const MailService(this.logBloc);
 
-  MailService(this.logBloc);
+  final LogBloc logBloc;
 
   void sendErrorMail(LogLevel logLevel, String message) {
     final logMessage = LogMessage(logLevel: logLevel, message: message);
@@ -240,26 +226,24 @@ An abstract class for the base logger implementation. It stores the log level an
 
 ```dart title="logger_base.dart"
 abstract class LoggerBase {
-  @protected
-  final LogLevel logLevel;
-  final LoggerBase? _nextLogger;
-
   const LoggerBase({
     required this.logLevel,
     LoggerBase? nextLogger,
   }) : _nextLogger = nextLogger;
 
+  @protected
+  final LogLevel logLevel;
+  final LoggerBase? _nextLogger;
+
   void logMessage(LogLevel level, String message) {
-    if (logLevel <= level) {
-      log(message);
-    }
+    if (logLevel <= level) log(message);
 
     _nextLogger?.logMessage(level, message);
   }
 
-  void logDebug(String message) => logMessage(LogLevel.Debug, message);
-  void logInfo(String message) => logMessage(LogLevel.Info, message);
-  void logError(String message) => logMessage(LogLevel.Error, message);
+  void logDebug(String message) => logMessage(LogLevel.debug, message);
+  void logInfo(String message) => logMessage(LogLevel.info, message);
+  void logError(String message) => logMessage(LogLevel.error, message);
 
   void log(String message);
 }
@@ -271,12 +255,12 @@ abstract class LoggerBase {
 
 ```dart title="debug_logger.dart"
 class DebugLogger extends LoggerBase {
-  final LogBloc logBloc;
-
   const DebugLogger(
     this.logBloc, {
     super.nextLogger,
-  }) : super(logLevel: LogLevel.Debug);
+  }) : super(logLevel: LogLevel.debug);
+
+  final LogBloc logBloc;
 
   @override
   void log(String message) {
@@ -291,13 +275,13 @@ class DebugLogger extends LoggerBase {
 
 ```dart title="info_logger.dart"
 class InfoLogger extends LoggerBase {
-  late ExternalLoggingService externalLoggingService;
-
   InfoLogger(
     LogBloc logBloc, {
     super.nextLogger,
   })  : externalLoggingService = ExternalLoggingService(logBloc),
-        super(logLevel: LogLevel.Info);
+        super(logLevel: LogLevel.info);
+
+  final ExternalLoggingService externalLoggingService;
 
   @override
   void log(String message) {
@@ -310,13 +294,13 @@ class InfoLogger extends LoggerBase {
 
 ```dart title="error_logger.dart"
 class ErrorLogger extends LoggerBase {
-  late MailService mailService;
-
   ErrorLogger(
     LogBloc logBloc, {
     super.nextLogger,
   })  : mailService = MailService(logBloc),
-        super(logLevel: LogLevel.Error);
+        super(logLevel: LogLevel.error);
+
+  final MailService mailService;
 
   @override
   void log(String message) {
@@ -344,7 +328,7 @@ class ChainOfResponsibilityExample extends StatefulWidget {
 
 class _ChainOfResponsibilityExampleState
     extends State<ChainOfResponsibilityExample> {
-  final LogBloc logBloc = LogBloc();
+  final logBloc = LogBloc();
 
   late final LoggerBase logger;
 

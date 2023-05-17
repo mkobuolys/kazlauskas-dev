@@ -71,18 +71,18 @@ The class diagram below shows the implementation of the Memento design pattern:
 
 ![Class Diagram - Implementation of the Memento design pattern](./img/memento_implementation.png)
 
-`ICommand` is an abstract class that is used as an interface for the specific command:
+`ICommand` defines a common interface for the specific command:
 
-- `execute()` - an abstract method that executes the command;
-- `undo()` - an abstract method that undoes the command and returns the state to the previous snapshot of it.
+- `execute()` - executes the command;
+- `undo()` - undoes the command and returns the state to the previous snapshot of it.
 
-`RandomisePropertiesCommand` is a concrete command which implements the abstract class `ICommand` and its methods.
+`RandomisePropertiesCommand` is a concrete command which implements `ICommand` interface.
 
 `CommandHistory` is a simple class that stores a list of already executed commands (`commandList`) and provides methods to add a new command to the command history list (`add()`) and undo the last command from that list (`undo()`).
 
-`IMemento` is an abstract class that is used as an interface for the specific memento class:
+`IMemento` defines a common interface for the specific memento class:
 
-- `getState()` - an abstract method that returns the snapshot of the internal originator's state.
+- `getState()` - returns the snapshot of the internal originator's state.
 
 `Memento` is a class that acts as a snapshot of the originator's internal state which is stored in the `state` property and returned via the `getState()` method.
 
@@ -102,28 +102,28 @@ A simple class to store information about the shape: its color, height and width
 
 ```dart title="shape.dart"
 class Shape {
-  late Color color;
-  late double height;
-  late double width;
+  Shape.initial()
+      : color = Colors.black,
+        height = 150.0,
+        width = 150.0;
 
-  Shape(this.color, this.height, this.width);
+  Shape.copy(Shape shape)
+      : color = shape.color,
+        height = shape.height,
+        width = shape.width;
 
-  Shape.initial() {
-    color = Colors.black;
-    height = 150.0;
-    width = 150.0;
-  }
-
-  Shape.copy(Shape shape) : this(shape.color, shape.height, shape.width);
+  Color color;
+  double height;
+  double width;
 }
 ```
 
 ### ICommand
 
-An interface that defines methods to be implemented by the specific command classes. Dart language does not support the interface as a class type, so we define an interface by creating an abstract class and providing a method header (name, return type, parameters) without the default implementation.
+An interface that defines methods to be implemented by the specific command classes.
 
 ```dart title="icommand.dart"
-abstract class ICommand {
+abstract interface class ICommand {
   void execute();
   void undo();
 }
@@ -135,12 +135,11 @@ A specific implementation of the command that sets all the properties of the `Sh
 
 ```dart title="randomise_properties_command.dart"
 class RandomisePropertiesCommand implements ICommand {
-  final Originator originator;
-  late final IMemento _backup;
+  RandomisePropertiesCommand(this.originator)
+      : _backup = originator.createMemento();
 
-  RandomisePropertiesCommand(this.originator) {
-    _backup = originator.createMemento();
-  }
+  final Originator originator;
+  final IMemento _backup;
 
   @override
   void execute() {
@@ -157,9 +156,7 @@ class RandomisePropertiesCommand implements ICommand {
   }
 
   @override
-  void undo() {
-    originator.restore(_backup);
-  }
+  void undo() => originator.restore(_backup);
 }
 ```
 
@@ -169,19 +166,16 @@ A simple class that stores a list of already executed commands. Also, this class
 
 ```dart title="command_history.dart"
 class CommandHistory {
-  final ListQueue<ICommand> _commandList = ListQueue<ICommand>();
+  final _commandList = ListQueue<ICommand>();
 
   bool get isEmpty => _commandList.isEmpty;
 
-  void add(ICommand command) {
-    _commandList.add(command);
-  }
+  void add(ICommand command) => _commandList.add(command);
 
   void undo() {
-    if (_commandList.isNotEmpty) {
-      final command = _commandList.removeLast();
-      command.undo();
-    }
+    if (_commandList.isEmpty) return;
+
+    _commandList.removeLast().undo();
   }
 }
 ```
@@ -191,7 +185,7 @@ class CommandHistory {
 An interface that defines the `getState()` method to be implemented by the specific Memento class.
 
 ```dart title="imemento.dart"
-abstract class IMemento {
+abstract interface class IMemento {
   Shape getState();
 }
 ```
@@ -201,17 +195,13 @@ abstract class IMemento {
 An implementation of the `IMemento` interface which stores the snapshot of `Originator's` internal state (`Shape` object). The state is accessible to the `Originator` via the `getState()` method.
 
 ```dart title="memento.dart"
-class Memento extends IMemento {
-  late final Shape _state;
+class Memento implements IMemento {
+  Memento(Shape shape) : _state = Shape.copy(shape);
 
-  Memento(Shape shape) {
-    _state = Shape.copy(shape);
-  }
+  final Shape _state;
 
   @override
-  Shape getState() {
-    return _state;
-  }
+  Shape getState() => _state;
 }
 ```
 
@@ -221,19 +211,13 @@ A class that defines a `createMemento()` method to save the current internal sta
 
 ```dart title="originator.dart"
 class Originator {
-  late Shape state;
+  Originator() : state = Shape.initial();
 
-  Originator() {
-    state = Shape.initial();
-  }
+  Shape state;
 
-  IMemento createMemento() {
-    return Memento(state);
-  }
+  IMemento createMemento() => Memento(state);
 
-  void restore(IMemento memento) {
-    state = memento.getState();
-  }
+  void restore(IMemento memento) => state = memento.getState();
 }
 ```
 
@@ -254,26 +238,20 @@ class MementoExample extends StatefulWidget {
 }
 
 class _MementoExampleState extends State<MementoExample> {
-  final CommandHistory _commandHistory = CommandHistory();
-  final Originator _originator = Originator();
+  final _commandHistory = CommandHistory();
+  final _originator = Originator();
 
   void _randomiseProperties() {
     final command = RandomisePropertiesCommand(_originator);
     _executeCommand(command);
   }
 
-  void _executeCommand(ICommand command) {
-    setState(() {
-      command.execute();
-      _commandHistory.add(command);
-    });
-  }
+  void _executeCommand(ICommand command) => setState(() {
+        command.execute();
+        _commandHistory.add(command);
+      });
 
-  void _undo() {
-    setState(() {
-      _commandHistory.undo();
-    });
-  }
+  void _undo() => setState(() => _commandHistory.undo());
 
   @override
   Widget build(BuildContext context) {

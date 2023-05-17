@@ -87,7 +87,7 @@ The class diagram below shows the implementation of the Observer design pattern:
 
 ![Class Diagram - Implementation of the Observer design pattern](./img/observer_implementation.png)
 
-`StockTicker` is an abstract class that is used as a base class for all the specific stock ticker classes. The class contains `title`, `stockTimer` and `stock` properties, and `subscribers` list, provides several methods:
+`StockTicker` is a base class that is used by all the specific stock ticker classes. The class contains `title`, `stockTimer` and `stock` properties, and `subscribers` list, provides several methods:
 
 - `subscribe()` - subscribes to the stock ticker;
 - `unsubscribe()` - unsubscribes from the stock ticker;
@@ -109,10 +109,10 @@ The `Stock` class contains `symbol`, `changeDirection`, `price` and `changeAmoun
 
 ### StockTicker
 
-An abstract class implementing base methods for all the specific stock ticker classes. Property `title` is used in the UI for stock ticker selection, `stockTimer` periodically emits a new stock value that is stored in the stock property by using the `setStock()` method. The class also stores a list of stock subscribers that can subscribe to the stock ticker and unsubscribe from it by using the `subscribe()` and `unsubscribe()` respectively. Stock ticker subscribers are notified about the value change by calling the `notifySubscribers()` method. The stock timer could be stopped by calling the `stopTicker()` method.
+An base class implementing methods for all the specific stock ticker classes. Property `title` is used in the UI for stock ticker selection, `stockTimer` periodically emits a new stock value that is stored in the stock property by using the `setStock()` method. The class also stores a list of stock subscribers that can subscribe to the stock ticker and unsubscribe from it by using the `subscribe()` and `unsubscribe()` respectively. Stock ticker subscribers are notified about the value change by calling the `notifySubscribers()` method. The stock timer could be stopped by calling the `stopTicker()` method.
 
 ```dart title="stock_ticker.dart"
-abstract class StockTicker {
+base class StockTicker {
   late final String title;
   late final Timer stockTimer;
 
@@ -147,9 +147,7 @@ abstract class StockTicker {
     );
   }
 
-  void stopTicker() {
-    stockTimer.cancel();
-  }
+  void stopTicker() => stockTimer.cancel();
 }
 ```
 
@@ -160,9 +158,9 @@ All of the specific stock ticker classes extend the abstract `StockTicker` class
 `GameStopStockTicker` - a stock ticker of the GameStop stocks that emits a new stock event every 2 seconds.
 
 ```dart title="gamestop_stock_ticker.dart"
-class GameStopStockTicker extends StockTicker {
+final class GameStopStockTicker extends StockTicker {
   GameStopStockTicker() {
-    title = StockTickerSymbol.GME.toShortString();
+    title = StockTickerSymbol.GME.name;
     stockTimer = Timer.periodic(
       const Duration(seconds: 2),
       (_) {
@@ -177,9 +175,9 @@ class GameStopStockTicker extends StockTicker {
 `GoogleStockTicker` - a stock ticker of the Google stocks that emits a new stock event every 5 seconds.
 
 ```dart title="google_stock_ticker.dart"
-class GoogleStockTicker extends StockTicker {
+final class GoogleStockTicker extends StockTicker {
   GoogleStockTicker() {
-    title = StockTickerSymbol.GOOGL.toShortString();
+    title = StockTickerSymbol.GOOGL.name;
     stockTimer = Timer.periodic(
       const Duration(seconds: 5),
       (_) {
@@ -194,9 +192,9 @@ class GoogleStockTicker extends StockTicker {
 `TeslaStockTicker` - a stock ticker of the Tesla stocks that emits a new stock event every 3 seconds.
 
 ```dart title="tesla_stock_ticker.dart"
-class TeslaStockTicker extends StockTicker {
+final class TeslaStockTicker extends StockTicker {
   TeslaStockTicker() {
-    title = StockTickerSymbol.TSLA.toShortString();
+    title = StockTickerSymbol.TSLA.name;
     stockTimer = Timer.periodic(
       const Duration(seconds: 3),
       (_) {
@@ -214,33 +212,29 @@ A simple class to store information about the stock. The `Stock` class contains 
 
 ```dart title="stock.dart"
 class Stock {
-  final StockTickerSymbol symbol;
-  final StockChangeDirection changeDirection;
-  final double price;
-  final double changeAmount;
-
   const Stock({
     required this.symbol,
     required this.changeDirection,
     required this.price,
     required this.changeAmount,
   });
+
+  final StockTickerSymbol symbol;
+  final StockChangeDirection changeDirection;
+  final double price;
+  final double changeAmount;
 }
 ```
 
 ### StockTickerSymbol
 
-A special kind of class - *enumeration* - to define supported stock ticker symbols. Also, there is a `StockTickerSymbolExtension` defined where the `toShortString()` method returns a short version of the enumeration string value.
+A special kind of class - *enumeration* - to define supported stock ticker symbols.
 
 ```dart title="stock_ticker_symbol.dart"
 enum StockTickerSymbol {
   GME,
   GOOGL,
   TSLA,
-}
-
-extension StockTickerSymbolExtension on StockTickerSymbol {
-  String toShortString() => toString().split('.').last;
 }
 ```
 
@@ -339,7 +333,7 @@ class _ObserverExampleState extends State<ObserverExample> {
 
   StreamSubscription<Stock>? _stockStreamSubscription;
   StockSubscriber _subscriber = DefaultStockSubscriber();
-  int _selectedSubscriberIndex = 0;
+  var _selectedSubscriberIndex = 0;
 
   @override
   void initState() {
@@ -359,11 +353,7 @@ class _ObserverExampleState extends State<ObserverExample> {
     super.dispose();
   }
 
-  void _onStockChange(Stock stock) {
-    setState(() {
-      _stockEntries.add(stock);
-    });
-  }
+  void _onStockChange(Stock stock) => setState(() => _stockEntries.add(stock));
 
   void _setSelectedSubscriberIndex(int? index) {
     for (final ticker in _stockTickers) {
@@ -393,9 +383,7 @@ class _ObserverExampleState extends State<ObserverExample> {
       stockTicker.subscribe(_subscriber);
     }
 
-    setState(() {
-      stockTickerModel.toggleSubscribed();
-    });
+    setState(() => stockTickerModel.toggleSubscribed());
   }
 
   @override

@@ -82,10 +82,10 @@ The class diagram below shows the implementation of the Strategy design pattern:
 
 ### IShippingCostsStrategy
 
-An interface that defines methods and properties to be implemented by all supported algorithms. Dart language does not support the interface as a class type, so we define an interface by creating an abstract class and providing a method header (name, return type, parameters) without the default implementation.
+An interface that defines methods and properties to be implemented by all supported algorithms.
 
 ```dart title="ishipping_costs_strategy.dart"
-abstract class IShippingCostsStrategy {
+abstract interface class IShippingCostsStrategy {
   late String label;
   double calculate(Order order);
 }
@@ -101,9 +101,7 @@ class InStorePickupStrategy implements IShippingCostsStrategy {
   String label = 'In-store pickup';
 
   @override
-  double calculate(Order order) {
-    return 0.0;
-  }
+  double calculate(Order order) => 0.0;
 }
 ```
 
@@ -115,29 +113,18 @@ class ParcelTerminalShippingStrategy implements IShippingCostsStrategy {
   String label = 'Parcel terminal shipping';
 
   @override
-  double calculate(Order order) {
-    return order.items.fold<double>(
-      0.0,
-      (sum, item) => sum + _getOrderItemShippingPrice(item),
-    );
-  }
+  double calculate(Order order) => order.items.fold<double>(
+        0.0,
+        (sum, item) => sum + _getOrderItemShippingPrice(item),
+      );
 
-  double _getOrderItemShippingPrice(OrderItem orderItem) {
-    switch (orderItem.packageSize) {
-      case PackageSize.S:
-        return 1.99;
-      case PackageSize.M:
-        return 2.49;
-      case PackageSize.L:
-        return 2.99;
-      case PackageSize.XL:
-        return 3.49;
-      default:
-        throw Exception(
-          "Unknown shipping price for the package of size '${orderItem.packageSize}'.",
-        );
-    }
-  }
+  double _getOrderItemShippingPrice(OrderItem orderItem) =>
+      switch (orderItem.packageSize) {
+        PackageSize.S => 1.99,
+        PackageSize.M => 2.49,
+        PackageSize.L => 2.99,
+        PackageSize.XL => 3.49,
+      };
 }
 ```
 
@@ -149,9 +136,7 @@ class PriorityShippingStrategy implements IShippingCostsStrategy {
   String label = 'Priority shipping';
 
   @override
-  double calculate(Order order) {
-    return 9.99;
-  }
+  double calculate(Order order) => 9.99;
 }
 ```
 
@@ -166,9 +151,7 @@ class Order {
   double get price =>
       items.fold(0.0, (sum, orderItem) => sum + orderItem.price);
 
-  void addOrderItem(OrderItem orderItem) {
-    items.add(orderItem);
-  }
+  void addOrderItem(OrderItem orderItem) => items.add(orderItem);
 }
 ```
 
@@ -178,16 +161,24 @@ A simple class to store information about a single order item. `OrderItem` class
 
 ```dart title="order_item.dart"
 class OrderItem {
-  late final String title;
-  late final double price;
-  late final PackageSize packageSize;
+  const OrderItem({
+    required this.title,
+    required this.price,
+    required this.packageSize,
+  });
 
-  OrderItem.random() {
+  final String title;
+  final double price;
+  final PackageSize packageSize;
+
+  factory OrderItem.random() {
     const packageSizeList = PackageSize.values;
 
-    title = faker.lorem.word();
-    price = random.integer(100, min: 5) - 0.01;
-    packageSize = packageSizeList[random.integer(packageSizeList.length)];
+    return OrderItem(
+      title: faker.lorem.word(),
+      price: random.integer(100, min: 5) - 0.01,
+      packageSize: packageSizeList[random.integer(packageSizeList.length)],
+    );
   }
 }
 ```
@@ -227,25 +218,17 @@ class _StrategyExampleState extends State<StrategyExample> {
     ParcelTerminalShippingStrategy(),
     PriorityShippingStrategy(),
   ];
-  int _selectedStrategyIndex = 0;
-  Order _order = Order();
+  var _selectedStrategyIndex = 0;
+  var _order = Order();
 
-  void _addToOrder() {
-    setState(() {
-      _order.addOrderItem(OrderItem.random());
-    });
-  }
+  void _addToOrder() => setState(() => _order.addOrderItem(OrderItem.random()));
 
-  void _clearOrder() {
-    setState(() {
-      _order = Order();
-    });
-  }
+  void _clearOrder() => setState(() => _order = Order());
 
   void _setSelectedStrategyIndex(int? index) {
-    setState(() {
-      _selectedStrategyIndex = index!;
-    });
+    if (index == null) return;
+
+    setState(() => _selectedStrategyIndex = index);
   }
 
   @override
@@ -274,7 +257,7 @@ class _StrategyExampleState extends State<StrategyExample> {
                     children: <Widget>[
                       Text(
                         'Your order is empty',
-                        style: Theme.of(context).textTheme.headline6,
+                        style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ],
                   ),
@@ -335,7 +318,7 @@ class ShippingOptions extends StatelessWidget {
           children: <Widget>[
             Text(
               'Select shipping type:',
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             for (var i = 0; i < shippingOptions.length; i++)
               RadioListTile<int>(
@@ -379,7 +362,7 @@ class OrderSummary extends StatelessWidget {
           children: <Widget>[
             Text(
               'Order summary',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
             const Divider(),
             OrderSummaryRow(

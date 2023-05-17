@@ -98,20 +98,16 @@ An abstract class for showing custom dialogs. `CustomDialog` class implements th
 
 ```dart title="custom_dialog.dart"
 abstract class CustomDialog {
+  const CustomDialog();
+
   String getTitle();
   Widget create(BuildContext context);
 
-  Future<void> show(BuildContext context) async {
-    final dialog = create(context);
-
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (_) {
-        return dialog;
-      },
-    );
-  }
+  Future<void> show(BuildContext context) => showDialog<void>(
+        context: context,
+        barrierDismissible: false,
+        builder: create,
+      );
 }
 ```
 
@@ -121,10 +117,10 @@ abstract class CustomDialog {
 
 ```dart title="android_alert_dialog.dart"
 class AndroidAlertDialog extends CustomDialog {
+  const AndroidAlertDialog();
+
   @override
-  String getTitle() {
-    return 'Android Alert Dialog';
-  }
+  String getTitle() => 'Android Alert Dialog';
 
   @override
   Widget create(BuildContext context) {
@@ -133,9 +129,7 @@ class AndroidAlertDialog extends CustomDialog {
       content: const Text('This is the material-style alert dialog!'),
       actions: <Widget>[
         TextButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
+          onPressed: Navigator.of(context).pop,
           child: const Text('Close'),
         ),
       ],
@@ -148,10 +142,10 @@ class AndroidAlertDialog extends CustomDialog {
 
 ```dart title="ios_alert_dialog.dart"
 class IosAlertDialog extends CustomDialog {
+  const IosAlertDialog();
+
   @override
-  String getTitle() {
-    return 'iOS Alert Dialog';
-  }
+  String getTitle() => 'iOS Alert Dialog';
 
   @override
   Widget create(BuildContext context) {
@@ -160,9 +154,7 @@ class IosAlertDialog extends CustomDialog {
       content: const Text('This is the cupertino-style alert dialog!'),
       actions: <Widget>[
         CupertinoButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
+          onPressed: Navigator.of(context).pop,
           child: const Text('Close'),
         ),
       ],
@@ -188,12 +180,12 @@ class FactoryMethodExample extends StatefulWidget {
 }
 
 class _FactoryMethodExampleState extends State<FactoryMethodExample> {
-  final List<CustomDialog> customDialogList = [
+  final List<CustomDialog> customDialogList = const [
     AndroidAlertDialog(),
     IosAlertDialog(),
   ];
 
-  int _selectedDialogIndex = 0;
+  var _selectedDialogIndex = 0;
 
   Future _showCustomDialog(BuildContext context) async {
     final selectedDialog = customDialogList[_selectedDialogIndex];
@@ -202,9 +194,9 @@ class _FactoryMethodExampleState extends State<FactoryMethodExample> {
   }
 
   void _setSelectedDialogIndex(int? index) {
-    setState(() {
-      _selectedDialogIndex = index!;
-    });
+    if (index == null) return;
+
+    setState(() => _selectedDialogIndex = index);
   }
 
   @override

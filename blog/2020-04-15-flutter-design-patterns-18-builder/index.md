@@ -125,13 +125,9 @@ abstract class Ingredient {
   @protected
   late String name;
 
-  List<String> getAllergens() {
-    return allergens;
-  }
+  List<String> getAllergens() => allergens;
 
-  String getName() {
-    return name;
-  }
+  String getName() => name;
 }
 ```
 
@@ -294,32 +290,18 @@ class Burger {
   final List<Ingredient> _ingredients = [];
   late double _price;
 
-  void addIngredient(Ingredient ingredient) {
-    _ingredients.add(ingredient);
-  }
+  void addIngredient(Ingredient ingredient) => _ingredients.add(ingredient);
 
-  String getFormattedIngredients() {
-    return _ingredients.map((x) => x.getName()).join(', ');
-  }
+  String getFormattedIngredients() =>
+      _ingredients.map((x) => x.getName()).join(', ');
 
-  String getFormattedAllergens() {
-    final allergens = <String>{};
+  String getFormattedAllergens() => <String>{
+        for (final ingredient in _ingredients) ...ingredient.getAllergens()
+      }.join(', ');
 
-    for (final ingredient in _ingredients) {
-      allergens.addAll(ingredient.getAllergens());
-    }
+  String getFormattedPrice() => '\$${_price.toStringAsFixed(2)}';
 
-    return allergens.join(', ');
-  }
-
-  String getFormattedPrice() {
-    return '\$${_price.toStringAsFixed(2)}';
-  }
-
-  // ignore: use_setters_to_change_properties
-  void setPrice(double price) {
-    _price = price;
-  }
+  void setPrice(double price) => _price = price;
 }
 ```
 
@@ -334,17 +316,11 @@ abstract class BurgerBuilderBase {
   @protected
   late double price;
 
-  void createBurger() {
-    burger = Burger();
-  }
+  void createBurger() => burger = Burger();
 
-  Burger getBurger() {
-    return burger;
-  }
+  Burger getBurger() => burger;
 
-  void setBurgerPrice() {
-    burger.setPrice(price);
-  }
+  void setBurgerPrice() => burger.setPrice(price);
 
   void addBuns();
   void addCheese();
@@ -529,18 +505,15 @@ A director class that manages the burger's build process and returns the build r
 
 ```dart title="burger_maker.dart"
 class BurgerMaker {
-  BurgerBuilderBase burgerBuilder;
-
   BurgerMaker(this.burgerBuilder);
 
-  // ignore: use_setters_to_change_properties
+  BurgerBuilderBase burgerBuilder;
+
   void changeBurgerBuilder(BurgerBuilderBase burgerBuilder) {
     this.burgerBuilder = burgerBuilder;
   }
 
-  Burger getBurger() {
-    return burgerBuilder.getBurger();
-  }
+  Burger getBurger() => burgerBuilder.getBurger();
 
   void prepareBurger() {
     burgerBuilder.createBurger();
@@ -573,7 +546,7 @@ class BuilderExample extends StatefulWidget {
 }
 
 class _BuilderExampleState extends State<BuilderExample> {
-  final BurgerMaker _burgerMaker = BurgerMaker(HamburgerBuilder());
+  final _burgerMaker = BurgerMaker(HamburgerBuilder());
   final List<BurgerMenuItem> _burgerMenuItems = [];
 
   late BurgerMenuItem _selectedBurgerMenuItem;
@@ -584,18 +557,12 @@ class _BuilderExampleState extends State<BuilderExample> {
     super.initState();
 
     _burgerMenuItems.addAll([
-      BurgerMenuItem(
-        label: 'Hamburger',
-        burgerBuilder: HamburgerBuilder(),
-      ),
+      BurgerMenuItem(label: 'Hamburger', burgerBuilder: HamburgerBuilder()),
       BurgerMenuItem(
         label: 'Cheeseburger',
         burgerBuilder: CheeseburgerBuilder(),
       ),
-      BurgerMenuItem(
-        label: 'Big Mac\u00AE',
-        burgerBuilder: BigMacBuilder(),
-      ),
+      BurgerMenuItem(label: 'Big Mac\u00AE', burgerBuilder: BigMacBuilder()),
       BurgerMenuItem(
         label: 'McChicken\u00AE',
         burgerBuilder: McChickenBuilder(),
@@ -612,13 +579,11 @@ class _BuilderExampleState extends State<BuilderExample> {
     return _burgerMaker.getBurger();
   }
 
-  void _onBurgerMenuItemChanged(BurgerMenuItem? selectedItem) {
-    setState(() {
-      _selectedBurgerMenuItem = selectedItem!;
-      _burgerMaker.changeBurgerBuilder(selectedItem.burgerBuilder);
-      _selectedBurger = _prepareSelectedBurger();
-    });
-  }
+  void _onBurgerMenuItemChanged(BurgerMenuItem? selectedItem) => setState(() {
+        _selectedBurgerMenuItem = selectedItem!;
+        _burgerMaker.changeBurgerBuilder(selectedItem.burgerBuilder);
+        _selectedBurger = _prepareSelectedBurger();
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -635,7 +600,7 @@ class _BuilderExampleState extends State<BuilderExample> {
               children: <Widget>[
                 Text(
                   'Select menu item:',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
             ),
@@ -656,7 +621,7 @@ class _BuilderExampleState extends State<BuilderExample> {
               children: <Widget>[
                 Text(
                   'Information:',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
             ),

@@ -76,10 +76,10 @@ The class diagram below shows the implementation of the Composite design pattern
 
 ### IFile
 
-An interface that defines methods to be implemented by leaf and composite components. Dart language does not support the interface as a class type, so we define an interface by creating an abstract class and providing a method header (name, return type, parameters) without the default implementation.
+An interface that defines methods to be implemented by leaf and composite components.
 
 ```dart title="ifile.dart"
-abstract class IFile {
+abstract interface class IFile {
   int getSize();
   Widget render(BuildContext context);
 }
@@ -90,7 +90,7 @@ abstract class IFile {
 A concrete implementation of the `IFile` interface which matches the leaf class in the Composite design pattern. In the `File` class, the `getSize()` method simply returns the file size, and `render()` - returns the file's UI widget which is used in the example screen.
 
 ```dart title="file.dart"
-class File extends StatelessWidget implements IFile {
+base class File extends StatelessWidget implements IFile {
   final String title;
   final int size;
   final IconData icon;
@@ -102,9 +102,7 @@ class File extends StatelessWidget implements IFile {
   });
 
   @override
-  int getSize() {
-    return size;
-  }
+  int getSize() => size;
 
   @override
   Widget render(BuildContext context) {
@@ -113,15 +111,15 @@ class File extends StatelessWidget implements IFile {
       child: ListTile(
         title: Text(
           title,
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         leading: Icon(icon),
         trailing: Text(
           FileSizeConverter.bytesToString(size),
           style: Theme.of(context)
               .textTheme
-              .bodyText2!
-              .copyWith(color: Colors.black54),
+              .bodyMedium
+              ?.copyWith(color: Colors.black54),
         ),
         dense: true,
       ),
@@ -129,9 +127,7 @@ class File extends StatelessWidget implements IFile {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return render(context);
-  }
+  Widget build(BuildContext context) => render(context);
 }
 ```
 
@@ -140,7 +136,7 @@ class File extends StatelessWidget implements IFile {
 All of these classes extend the `File` class and specify the concrete file type by providing a unique icon for the corresponding file type:
 
 ```dart title="audio_file.dart"
-class AudioFile extends File {
+final class AudioFile extends File {
   const AudioFile({
     required super.title,
     required super.size,
@@ -149,7 +145,7 @@ class AudioFile extends File {
 ```
 
 ```dart title="image_file.dart"
-class ImageFile extends File {
+final class ImageFile extends File {
   const ImageFile({
     required super.title,
     required super.size,
@@ -158,7 +154,7 @@ class ImageFile extends File {
 ```
 
 ```dart title="text_file.dart"
-class TextFile extends File {
+final class TextFile extends File {
   const TextFile({
     required super.title,
     required super.size,
@@ -167,7 +163,7 @@ class TextFile extends File {
 ```
 
 ```dart title="video_file.dart"
-class VideoFile extends File {
+final class VideoFile extends File {
   const VideoFile({
     required super.title,
     required super.size,
@@ -188,9 +184,7 @@ class Directory extends StatelessWidget implements IFile {
 
   Directory(this.title, {this.isInitiallyExpanded = false});
 
-  void addFile(IFile file) {
-    files.add(file);
-  }
+  void addFile(IFile file) => files.add(file);
 
   @override
   int getSize() {
@@ -222,9 +216,7 @@ class Directory extends StatelessWidget implements IFile {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return render(context);
-  }
+  Widget build(BuildContext context) => render(context);
 }
 ```
 
@@ -263,54 +255,41 @@ class CompositeExample extends StatelessWidget {
   const CompositeExample();
 
   Widget _buildMediaDirectory() {
-    final musicDirectory = Directory('Music');
-    musicDirectory.addFile(
-      const AudioFile(title: 'Darude - Sandstorm.mp3', size: 2612453),
-    );
-    musicDirectory.addFile(
-      const AudioFile(title: 'Toto - Africa.mp3', size: 3219811),
-    );
-    musicDirectory.addFile(
-      const AudioFile(title: 'Bag Raiders - Shooting Stars.mp3', size: 3811214),
-    );
+    final musicDirectory = Directory('Music')
+      ..addFile(const AudioFile(title: 'Darude - Sandstorm.mp3', size: 2612453))
+      ..addFile(const AudioFile(title: 'Toto - Africa.mp3', size: 3219811))
+      ..addFile(
+        const AudioFile(
+          title: 'Bag Raiders - Shooting Stars.mp3',
+          size: 3811214,
+        ),
+      );
 
-    final moviesDirectory = Directory('Movies');
+    final moviesDirectory = Directory('Movies')
+      ..addFile(const VideoFile(title: 'The Matrix.avi', size: 951495532))
+      ..addFile(
+        const VideoFile(title: 'The Matrix Reloaded.mp4', size: 1251495532),
+      );
 
-    moviesDirectory.addFile(
-      const VideoFile(title: 'The Matrix.avi', size: 951495532),
-    );
-    moviesDirectory.addFile(
-      const VideoFile(title: 'The Matrix Reloaded.mp4', size: 1251495532),
-    );
+    final catPicturesDirectory = Directory('Cats')
+      ..addFile(const ImageFile(title: 'Cat 1.jpg', size: 844497))
+      ..addFile(const ImageFile(title: 'Cat 2.jpg', size: 975363))
+      ..addFile(const ImageFile(title: 'Cat 3.png', size: 1975363));
 
-    final catPicturesDirectory = Directory('Cats');
-    catPicturesDirectory.addFile(
-      const ImageFile(title: 'Cat 1.jpg', size: 844497),
-    );
-    catPicturesDirectory.addFile(
-      const ImageFile(title: 'Cat 2.jpg', size: 975363),
-    );
-    catPicturesDirectory.addFile(
-      const ImageFile(title: 'Cat 3.png', size: 1975363),
-    );
+    final picturesDirectory = Directory('Pictures')
+      ..addFile(catPicturesDirectory)
+      ..addFile(const ImageFile(title: 'Not a cat.png', size: 2971361));
 
-    final picturesDirectory = Directory('Pictures');
-    picturesDirectory.addFile(catPicturesDirectory);
-    picturesDirectory.addFile(
-      const ImageFile(title: 'Not a cat.png', size: 2971361),
-    );
-
-    final mediaDirectory = Directory('Media', isInitiallyExpanded: true);
-    mediaDirectory.addFile(musicDirectory);
-    mediaDirectory.addFile(moviesDirectory);
-    mediaDirectory.addFile(picturesDirectory);
-    mediaDirectory.addFile(Directory('New Folder'));
-    mediaDirectory.addFile(
-      const TextFile(title: 'Nothing suspicious there.txt', size: 430791),
-    );
-    mediaDirectory.addFile(
-      const TextFile(title: 'TeamTrees.txt', size: 104),
-    );
+    final mediaDirectory = Directory('Media', isInitiallyExpanded: true)
+      ..addFile(musicDirectory)
+      ..addFile(musicDirectory)
+      ..addFile(moviesDirectory)
+      ..addFile(picturesDirectory)
+      ..addFile(Directory('New Folder'))
+      ..addFile(
+        const TextFile(title: 'Nothing suspicious there.txt', size: 430791),
+      )
+      ..addFile(const TextFile(title: 'TeamTrees.txt', size: 104));
 
     return mediaDirectory;
   }

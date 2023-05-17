@@ -65,10 +65,10 @@ We will use the Singleton design pattern to save our Singleton example’s state
 
 ### ExampleStateBase
 
-Since the example’s state is implemented in several different ways, its abstraction was created to reuse it in all of the implementations. Hence, class `ExampleStateBase` provides this abstracted state:
+Since the example’s state is implemented in several different ways, its abstraction was created to reuse it in all of the implementations. Hence, `ExampleStateBase` provides this abstracted state:
 
 ```dart title="example_state_base.dart"
-abstract class ExampleStateBase {
+base class ExampleStateBase {
   @protected
   late String initialText;
   @protected
@@ -99,7 +99,7 @@ In the class diagram below, concrete classes of the Flutter Design Patterns appl
 Code of the `ExampleStateByDefinition`:
 
 ```dart title="example_state_by_definition.dart"
-class ExampleStateByDefinition extends ExampleStateBase {
+final class ExampleStateByDefinition extends ExampleStateBase {
   static ExampleStateByDefinition? _instance;
 
   ExampleStateByDefinition._internal() {
@@ -120,7 +120,7 @@ class ExampleStateByDefinition extends ExampleStateBase {
 Class `ExampleState` implements a Singleton design pattern “the Dart way”:
 
 ```dart title="example_state.dart"
-class ExampleState extends ExampleStateBase {
+final class ExampleState extends ExampleStateBase {
   static final ExampleState _instance = ExampleState._internal();
 
   factory ExampleState() {
@@ -141,7 +141,7 @@ By comparing this code with the previous implementation, you could notice that t
 Just a simple implementation of the state class without bothering it with Singleton or any other ”fancy-schmancy” design patterns.
 
 ```dart title="example_state_without_singleton.dart"
-class ExampleStateWithoutSingleton extends ExampleStateBase {
+final class ExampleStateWithoutSingleton extends ExampleStateBase {
   ExampleStateWithoutSingleton() {
     initialText =
         "A new 'ExampleStateWithoutSingleton' instance has been created.";
@@ -221,7 +221,7 @@ class _SingletonExampleState extends State<SingletonExample> {
             ),
             const SizedBox(height: LayoutConstants.spaceXL),
             const Text(
-              'Note: change states\' text and navigate the application (e.g. go to the tab "description" or main menu, then go back to this example) to see how the Singleton state behaves!',
+              "Note: change states' text and navigate the application (e.g. go to main menu, then go back to this example) to see how the Singleton state behaves!",
               textAlign: TextAlign.justify,
             ),
           ],

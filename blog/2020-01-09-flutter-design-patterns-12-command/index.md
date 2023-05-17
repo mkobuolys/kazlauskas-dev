@@ -82,13 +82,13 @@ The class diagram below shows the implementation of the Command design pattern:
 
 ![Class Diagram - Implementation of the Command design pattern](./img/command_implementation.png)
 
-The `Command` is an abstract class that is used as an interface for all the specific commands:
+`Command` defines a common interface for all the specific commands:
 
-- `execute()` - an abstract method that executes the command;
-- `getTitle()` - an abstract method that returns the command's title. Used in command history UI;
-- `undo()` - an abstract method that undoes the command and returns the receiver to the previous state.
+- `execute()` - executes the command;
+- `getTitle()` - returns the command's title. Used in command history UI;
+- `undo()` - undoes the command and returns the receiver to the previous state.
 
-`ChangeColorCommand`, `ChangeHeightCommand` and `ChangeWidthCommand` are concrete command classes that implement the abstract class `Command` and its methods.
+`ChangeColorCommand`, `ChangeHeightCommand` and `ChangeWidthCommand` are concrete implementations of the `Command` interface.
 
 The `Shape` is a receiver class that stores multiple properties defining the shape presented in UI: `color`, `height` and `width`.
 
@@ -102,24 +102,23 @@ A simple class to store information about the shape: its color, height and width
 
 ```dart title="shape.dart"
 class Shape {
-  late Color color;
-  late double height;
-  late double width;
+  Shape.initial()
+      : color = Colors.black,
+        height = 150.0,
+        width = 150.0;
 
-  Shape.initial() {
-    color = Colors.black;
-    height = 150.0;
-    width = 150.0;
-  }
+  Color color;
+  double height;
+  double width;
 }
 ```
 
 ### Command
 
-An interface that defines methods to be implemented by the specific command classes. Dart language does not support the interface as a class type, so we define an interface by creating an abstract class and providing a method header (name, return type, parameters) without the default implementation.
+An interface that defines methods to be implemented by the specific command classes.
 
 ```dart title="command.dart"
-abstract class Command {
+abstract interface class Command {
   void execute();
   String getTitle();
   void undo();
@@ -132,32 +131,24 @@ abstract class Command {
 
 ```dart title="change_color_command.dart"
 class ChangeColorCommand implements Command {
+  ChangeColorCommand(this.shape) : previousColor = shape.color;
+
+  final Color previousColor;
   Shape shape;
-  late Color previousColor;
-
-  ChangeColorCommand(this.shape) {
-    previousColor = shape.color;
-  }
 
   @override
-  void execute() {
-    shape.color = Color.fromRGBO(
-      random.integer(255),
-      random.integer(255),
-      random.integer(255),
-      1.0,
-    );
-  }
+  String getTitle() => 'Change color';
 
   @override
-  String getTitle() {
-    return 'Change color';
-  }
+  void execute() => shape.color = Color.fromRGBO(
+        random.integer(255),
+        random.integer(255),
+        random.integer(255),
+        1.0,
+      );
 
   @override
-  void undo() {
-    shape.color = previousColor;
-  }
+  void undo() => shape.color = previousColor;
 }
 ```
 
@@ -165,27 +156,19 @@ class ChangeColorCommand implements Command {
 
 ```dart title="change_height_command.dart"
 class ChangeHeightCommand implements Command {
+  ChangeHeightCommand(this.shape) : previousHeight = shape.height;
+
+  final double previousHeight;
   Shape shape;
-  late double previousHeight;
-
-  ChangeHeightCommand(this.shape) {
-    previousHeight = shape.height;
-  }
 
   @override
-  void execute() {
-    shape.height = random.integer(150, min: 50).toDouble();
-  }
+  String getTitle() => 'Change height';
 
   @override
-  String getTitle() {
-    return 'Change height';
-  }
+  void execute() => shape.height = random.integer(150, min: 50).toDouble();
 
   @override
-  void undo() {
-    shape.height = previousHeight;
-  }
+  void undo() => shape.height = previousHeight;
 }
 ```
 
@@ -193,27 +176,19 @@ class ChangeHeightCommand implements Command {
 
 ```dart title="change_width_command.dart"
 class ChangeWidthCommand implements Command {
+  ChangeWidthCommand(this.shape) : previousWidth = shape.width;
+
+  final double previousWidth;
   Shape shape;
-  late double previousWidth;
-
-  ChangeWidthCommand(this.shape) {
-    previousWidth = shape.width;
-  }
 
   @override
-  void execute() {
-    shape.width = random.integer(150, min: 50).toDouble();
-  }
+  String getTitle() => 'Change width';
 
   @override
-  String getTitle() {
-    return 'Change width';
-  }
+  void execute() => shape.width = random.integer(150, min: 50).toDouble();
 
   @override
-  void undo() {
-    shape.width = previousWidth;
-  }
+  void undo() => shape.width = previousWidth;
 }
 ```
 
@@ -223,21 +198,18 @@ A simple class that stores a list of already executed commands. Also, this class
 
 ```dart title="command_history.dart"
 class CommandHistory {
-  final ListQueue<Command> _commandList = ListQueue<Command>();
+  final _commandList = ListQueue<Command>();
 
   bool get isEmpty => _commandList.isEmpty;
   List<String> get commandHistoryList =>
       _commandList.map((c) => c.getTitle()).toList();
 
-  void add(Command command) {
-    _commandList.add(command);
-  }
+  void add(Command command) => _commandList.add(command);
 
   void undo() {
-    if (_commandList.isNotEmpty) {
-      final command = _commandList.removeLast();
-      command.undo();
-    }
+    if (_commandList.isEmpty) return;
+
+    _commandList.removeLast().undo();
   }
 }
 ```
@@ -259,8 +231,8 @@ class CommandExample extends StatefulWidget {
 }
 
 class _CommandExampleState extends State<CommandExample> {
-  final CommandHistory _commandHistory = CommandHistory();
-  final Shape _shape = Shape.initial();
+  final _commandHistory = CommandHistory();
+  final _shape = Shape.initial();
 
   void _changeColor() {
     final command = ChangeColorCommand(_shape);
@@ -277,18 +249,12 @@ class _CommandExampleState extends State<CommandExample> {
     _executeCommand(command);
   }
 
-  void _executeCommand(Command command) {
-    setState(() {
-      command.execute();
-      _commandHistory.add(command);
-    });
-  }
+  void _executeCommand(Command command) => setState(() {
+        command.execute();
+        _commandHistory.add(command);
+      });
 
-  void _undo() {
-    setState(() {
-      _commandHistory.undo();
-    });
-  }
+  void _undo() => setState(() => _commandHistory.undo());
 
   @override
   Widget build(BuildContext context) {

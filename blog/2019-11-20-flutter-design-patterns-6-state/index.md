@@ -101,11 +101,11 @@ The current state is exposed to the UI by using the outState stream.
 
 ### IState
 
-An interface that defines methods to be implemented by all specific state classes. Dart language does not support the interface as a class type, so we define an interface by creating an abstract class and providing a method header (name, return type, parameters) without the default implementation.
+An interface that defines methods to be implemented by all specific state classes.
 
 ```dart title="istate.dart"
-abstract class IState {
-  Future nextState(StateContext context);
+abstract interface class IState {
+  Future<void> nextState(StateContext context);
   Widget render();
 }
 ```
@@ -123,7 +123,7 @@ class StateContext {
   late IState _currentState;
 
   StateContext() {
-    _currentState = NoResultsState();
+    _currentState = const NoResultsState();
     _addCurrentStateToStream();
   }
 
@@ -156,9 +156,11 @@ class StateContext {
 
 ```dart title="error_state.dart"
 class ErrorState implements IState {
+  const ErrorState();
+
   @override
-  Future nextState(StateContext context) async {
-    context.setState(LoadingState());
+  Future<void> nextState(StateContext context) async {
+    context.setState(const LoadingState());
   }
 
   @override
@@ -179,13 +181,13 @@ class ErrorState implements IState {
 
 ```dart title="loaded_state.dart"
 class LoadedState implements IState {
-  final List<String> names;
-
   const LoadedState(this.names);
 
+  final List<String> names;
+
   @override
-  Future nextState(StateContext context) async {
-    context.setState(LoadingState());
+  Future<void> nextState(StateContext context) async {
+    context.setState(const LoadingState());
   }
 
   @override
@@ -214,9 +216,11 @@ class LoadedState implements IState {
 
 ```dart title="no_results_state.dart"
 class NoResultsState implements IState {
+  const NoResultsState();
+
   @override
-  Future nextState(StateContext context) async {
-    context.setState(LoadingState());
+  Future<void> nextState(StateContext context) async {
+    context.setState(const LoadingState());
   }
 
   @override
@@ -234,20 +238,22 @@ class NoResultsState implements IState {
 
 ```dart title="loading_state.dart"
 class LoadingState implements IState {
-  final FakeApi _api = FakeApi();
+  const LoadingState({
+    this.api = const FakeApi(),
+  });
+
+  final FakeApi api;
 
   @override
-  Future nextState(StateContext context) async {
+  Future<void> nextState(StateContext context) async {
     try {
-      final resultList = await _api.getNames();
+      final resultList = await api.getNames();
 
-      if (resultList.isEmpty) {
-        context.setState(NoResultsState());
-      } else {
-        context.setState(LoadedState(resultList));
-      }
+      context.setState(
+        resultList.isEmpty ? const NoResultsState() : LoadedState(resultList),
+      );
     } on Exception {
-      context.setState(ErrorState());
+      context.setState(const ErrorState());
     }
   }
 
@@ -269,30 +275,21 @@ A fake API is used to randomly generate a list of person names. The method `getN
 
 ```dart title="fake_api.dart"
 class FakeApi {
-  Future<List<String>> getNames() async {
-    return Future.delayed(
-      const Duration(seconds: 2),
-      () {
-        if (random.boolean()) {
-          return _getRandomNames();
-        }
+  const FakeApi();
 
-        throw Exception('Unexpected error');
-      },
-    );
-  }
+  Future<List<String>> getNames() => Future.delayed(
+        const Duration(seconds: 2),
+        () {
+          if (random.boolean()) return _getRandomNames();
 
-  List<String> _getRandomNames() {
-    if (random.boolean()) {
-      return [];
-    }
+          throw Exception('Unexpected error');
+        },
+      );
 
-    return [
-      faker.person.name(),
-      faker.person.name(),
-      faker.person.name(),
-    ];
-  }
+  List<String> _getRandomNames() => List.generate(
+        random.boolean() ? 3 : 0,
+        (_) => faker.person.name(),
+      );
 }
 ```
 
@@ -313,7 +310,7 @@ class StateExample extends StatefulWidget {
 }
 
 class _StateExampleState extends State<StateExample> {
-  final StateContext _stateContext = StateContext();
+  final _stateContext = StateContext();
 
   Future<void> _changeState() async {
     await _stateContext.nextState();
@@ -343,7 +340,7 @@ class _StateExampleState extends State<StateExample> {
             ),
             const SizedBox(height: LayoutConstants.spaceL),
             StreamBuilder<IState>(
-              initialData: NoResultsState(),
+              initialData: const NoResultsState(),
               stream: _stateContext.outState,
               builder: (context, snapshot) => snapshot.data!.render(),
             ),

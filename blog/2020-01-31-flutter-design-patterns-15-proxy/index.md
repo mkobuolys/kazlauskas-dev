@@ -75,11 +75,11 @@ The class diagram below shows the implementation of the Proxy design pattern:
 
 `Customer` class is used to store information about the customer. One of its properties is `CustomerDetails` which stores additional data about the customer e.g. its email, hobby and position.
 
-`ICustomerDetailsService` is an abstract class that is used as an interface for the customer details service:
+`ICustomerDetailsService` defines an interface for the customer details service:
 
-- `getCustomerDetails()` - an abstract method that returns details for the specific customer.
+- `getCustomerDetails()` - returns details for the specific customer.
 
-`CustomerDetailsService` is the "real" customer details service that implements the abstract class `ICustomerDetailsService` and its methods.
+`CustomerDetailsService` is the "real" customer details service that implements the `ICustomerDetailsService` interface.
 
 `CustomerDetailsServiceProxy` is a proxy service that contains the cache (dictionary object) and sends the request to the real `CustomerDetailsService` only if the customer details object is not available in the cache.
 
@@ -91,14 +91,13 @@ A simple class to store information about the customer: its id, name and details
 
 ```dart title="customer.dart"
 class Customer {
-  late final String id;
-  late final String name;
-  CustomerDetails? details;
+  Customer()
+      : id = faker.guid.guid(),
+        name = faker.person.name();
 
-  Customer() {
-    id = faker.guid.guid();
-    name = faker.person.name();
-  }
+  final String id;
+  final String name;
+  CustomerDetails? details;
 }
 ```
 
@@ -108,26 +107,26 @@ A simple class to store information about customer details: id to map the detail
 
 ```dart title="customer_details.dart"
 class CustomerDetails {
+  const CustomerDetails({
+    required this.customerId,
+    required this.email,
+    required this.hobby,
+    required this.position,
+  });
+
   final String customerId;
   final String email;
   final String hobby;
   final String position;
-
-  const CustomerDetails(
-    this.customerId,
-    this.email,
-    this.hobby,
-    this.position,
-  );
 }
 ```
 
 ### ICustomerDetailsService
 
-An interface that defines the `getCustomerDetails()` method to be implemented by the customer details service and its proxy. Dart language does not support the interface as a class type, so we define an interface by creating an abstract class and providing a method header (name, return type, parameters) without the default implementation.
+An interface that defines the `getCustomerDetails()` method to be implemented by the customer details service and its proxy.
 
 ```dart title="icustomer_details_service.dart"
-abstract class ICustomerDetailsService {
+abstract interface class ICustomerDetailsService {
   Future<CustomerDetails> getCustomerDetails(String id);
 }
 ```
@@ -138,19 +137,18 @@ A specific implementation of the `ICustomerDetailsService` interface - the r
 
 ```dart title="customer_details_service.dart"
 class CustomerDetailsService implements ICustomerDetailsService {
-  @override
-  Future<CustomerDetails> getCustomerDetails(String id) async {
-    return Future.delayed(
-      const Duration(seconds: 2),
-      () {
-        final email = faker.internet.email();
-        final hobby = faker.sport.name();
-        final position = faker.job.title();
+  const CustomerDetailsService();
 
-        return CustomerDetails(id, email, hobby, position);
-      },
-    );
-  }
+  @override
+  Future<CustomerDetails> getCustomerDetails(String id) => Future.delayed(
+        const Duration(seconds: 2),
+        () => CustomerDetails(
+          customerId: id,
+          email: faker.internet.email(),
+          hobby: faker.sport.name(),
+          position: faker.job.title(),
+        ),
+      );
 }
 ```
 
@@ -160,16 +158,14 @@ A specific implementation of the `ICustomerDetailsService` interface - a pro
 
 ```dart title="customer_details_service_proxy.dart"
 class CustomerDetailsServiceProxy implements ICustomerDetailsService {
+  CustomerDetailsServiceProxy(this.service);
+
   final ICustomerDetailsService service;
   final Map<String, CustomerDetails> customerDetailsCache = {};
 
-  CustomerDetailsServiceProxy(this.service);
-
   @override
   Future<CustomerDetails> getCustomerDetails(String id) async {
-    if (customerDetailsCache.containsKey(id)) {
-      return customerDetailsCache[id]!;
-    }
+    if (customerDetailsCache.containsKey(id)) return customerDetailsCache[id]!;
 
     final customerDetails = await service.getCustomerDetails(id);
     customerDetailsCache[id] = customerDetails;
@@ -196,22 +192,19 @@ class ProxyExample extends StatefulWidget {
 }
 
 class _ProxyExampleState extends State<ProxyExample> {
-  final ICustomerDetailsService _customerDetailsServiceProxy =
-      CustomerDetailsServiceProxy(CustomerDetailsService());
-  final List<Customer> _customerList = List.generate(10, (_) => Customer());
+  final _customerDetailsServiceProxy = CustomerDetailsServiceProxy(
+    const CustomerDetailsService(),
+  );
+  final _customerList = List.generate(10, (_) => Customer());
 
-  void _showCustomerDetails(Customer customer) {
-    showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (_) {
-        return CustomerDetailsDialog(
+  void _showCustomerDetails(Customer customer) => showDialog<void>(
+        context: context,
+        barrierDismissible: false,
+        builder: (_) => CustomerDetailsDialog(
           service: _customerDetailsServiceProxy,
           customer: customer,
-        );
-      },
-    );
-  }
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -225,7 +218,7 @@ class _ProxyExampleState extends State<ProxyExample> {
           children: <Widget>[
             Text(
               'Press on the list tile to see more information about the customer',
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleMedium,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: LayoutConstants.spaceL),
@@ -256,13 +249,13 @@ The `CustomerDetailsDialog` class uses the passed proxy service on its state's i
 
 ```dart title="customer_details_dialog.dart"
 class CustomerDetailsDialog extends StatefulWidget {
-  final Customer customer;
-  final ICustomerDetailsService service;
-
   const CustomerDetailsDialog({
     required this.customer,
     required this.service,
   });
+
+  final Customer customer;
+  final ICustomerDetailsService service;
 
   @override
   _CustomerDetailsDialogState createState() => _CustomerDetailsDialogState();
@@ -280,9 +273,7 @@ class _CustomerDetailsDialogState extends State<CustomerDetailsDialog> {
         );
   }
 
-  void _closeDialog() {
-    Navigator.of(context).pop();
-  }
+  void _closeDialog() => Navigator.of(context).pop();
 
   @override
   Widget build(BuildContext context) {

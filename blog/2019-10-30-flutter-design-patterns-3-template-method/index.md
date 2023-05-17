@@ -92,6 +92,8 @@ An abstract (template) class for the BMI calculation algorithm.
 
 ```dart title="students_bmi_calculator.dart"
 abstract class StudentsBmiCalculator {
+  const StudentsBmiCalculator();
+
   List<Student> calculateBmiAndReturnStudentList() {
     var studentList = getStudentsData();
     studentList = doStudentsFiltering(studentList);
@@ -136,21 +138,26 @@ A concrete implementation of the BMI calculation algorithm which uses `XmlStuden
 
 ```dart title="students_xml_bmi_calculator.dart"
 class StudentsXmlBmiCalculator extends StudentsBmiCalculator {
-  final XmlStudentsApi _api = XmlStudentsApi();
+  const StudentsXmlBmiCalculator({
+    this.api = const XmlStudentsApi(),
+  });
+
+  final XmlStudentsApi api;
 
   @override
   @protected
   List<Student> getStudentsData() {
-    final studentsXml = _api.getStudentsXml();
+    final studentsXml = api.getStudentsXml();
     final xmlDocument = XmlDocument.parse(studentsXml);
     final studentsList = <Student>[];
 
     for (final xmlElement in xmlDocument.findAllElements('student')) {
-      final fullName = xmlElement.findElements('fullname').single.text;
-      final age = int.parse(xmlElement.findElements('age').single.text);
+      final fullName = xmlElement.findElements('fullname').single.innerText;
+      final age = int.parse(xmlElement.findElements('age').single.innerText);
       final height =
-          double.parse(xmlElement.findElements('height').single.text);
-      final weight = int.parse(xmlElement.findElements('weight').single.text);
+          double.parse(xmlElement.findElements('height').single.innerText);
+      final weight =
+          int.parse(xmlElement.findElements('weight').single.innerText);
 
       studentsList.add(
         Student(
@@ -173,12 +180,16 @@ A concrete implementation of the BMI calculation algorithm which uses `JsonStude
 
 ```dart title="students_json_bmi_calculator.dart"
 class StudentsJsonBmiCalculator extends StudentsBmiCalculator {
-  final JsonStudentsApi _api = JsonStudentsApi();
+  const StudentsJsonBmiCalculator({
+    this.api = const JsonStudentsApi(),
+  });
+
+  final JsonStudentsApi api;
 
   @override
   @protected
   List<Student> getStudentsData() {
-    final studentsJson = _api.getStudentsJson();
+    final studentsJson = api.getStudentsJson();
     final studentsMap = json.decode(studentsJson) as Map<String, dynamic>;
     final studentsJsonList = studentsMap['students'] as List;
     final studentsList = studentsJsonList.map((json) {
@@ -203,12 +214,16 @@ A concrete implementation of the BMI calculation algorithm which uses `JsonStude
 
 ```dart title="teenage_students_json_bmi_calculator.dart"
 class TeenageStudentsJsonBmiCalculator extends StudentsBmiCalculator {
-  final JsonStudentsApi _api = JsonStudentsApi();
+  const TeenageStudentsJsonBmiCalculator({
+    this.api = const JsonStudentsApi(),
+  });
+
+  final JsonStudentsApi api;
 
   @override
   @protected
   List<Student> getStudentsData() {
-    final studentsJson = _api.getStudentsJson();
+    final studentsJson = api.getStudentsJson();
     final studentsMap = json.decode(studentsJson) as Map<String, dynamic>;
     final studentsJsonList = studentsMap['students'] as List;
     final studentsList = studentsJsonList.map((json) {
@@ -264,7 +279,7 @@ A fake API which returns students' information as a JSON string.
 
 ```dart title="json_students_api.dart"
 class JsonStudentsApi {
-  final String _studentsJson = '''
+  static const _studentsJson = '''
   {
     "students": [
       {
@@ -295,9 +310,9 @@ class JsonStudentsApi {
   }
   ''';
 
-  String getStudentsJson() {
-    return _studentsJson;
-  }
+  const JsonStudentsApi();
+
+  String getStudentsJson() => _studentsJson;
 }
 ```
 
@@ -307,7 +322,7 @@ A fake API that returns students' information as an XML string.
 
 ```dart title="xml_students_api.dart"
 class XmlStudentsApi {
-  final String _studentsXml = '''
+  static const _studentsXml = '''
   <?xml version="1.0"?>
   <students>
     <student>
@@ -337,9 +352,9 @@ class XmlStudentsApi {
   </students>
   ''';
 
-  String getStudentsXml() {
-    return _studentsXml;
-  }
+  const XmlStudentsApi();
+
+  String getStudentsXml() => _studentsXml;
 }
 ```
 
@@ -357,10 +372,10 @@ class TemplateMethodExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScrollConfiguration(
-      behavior: const ScrollBehavior(),
+    return const ScrollConfiguration(
+      behavior: ScrollBehavior(),
       child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(
+        padding: EdgeInsets.symmetric(
           horizontal: LayoutConstants.paddingL,
         ),
         child: Column(
@@ -370,12 +385,12 @@ class TemplateMethodExample extends StatelessWidget {
               bmiCalculator: StudentsXmlBmiCalculator(),
               headerText: 'Students from XML data source:',
             ),
-            const SizedBox(height: LayoutConstants.spaceL),
+            SizedBox(height: LayoutConstants.spaceL),
             StudentsSection(
               bmiCalculator: StudentsJsonBmiCalculator(),
               headerText: 'Students from JSON data source:',
             ),
-            const SizedBox(height: LayoutConstants.spaceL),
+            SizedBox(height: LayoutConstants.spaceL),
             StudentsSection(
               bmiCalculator: TeenageStudentsJsonBmiCalculator(),
               headerText: 'Students from JSON data source (teenagers only):',

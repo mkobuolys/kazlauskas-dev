@@ -106,22 +106,18 @@ A class that stores the [adjacency list](https://en.wikipedia.org/wiki/Adjacency
 class Graph {
   final Map<int, Set<int>> adjacencyList = {};
 
-  void addEdge(int source, int target) {
-    if (adjacencyList.containsKey(source)) {
-      adjacencyList[source]!.add(target);
-    } else {
-      adjacencyList[source] = {target};
-    }
-  }
+  void addEdge(int source, int target) => adjacencyList.containsKey(source)
+      ? adjacencyList[source]!.add(target)
+      : adjacencyList[source] = {target};
 }
 ```
 
 ### ITreeCollection
 
-An interface that defines methods to be implemented by all specific tree collection classes. Dart language does not support the interface as a class type, so we define an interface by creating an abstract class and providing a method header (name, return type, parameters) without the default implementation.
+An interface that defines methods to be implemented by all specific tree collection classes.
 
 ```dart title="itree_collection.dart"
-abstract class ITreeCollection {
+abstract interface class ITreeCollection {
   ITreeIterator createIterator();
   String getTitle();
 }
@@ -133,19 +129,15 @@ abstract class ITreeCollection {
 
 ```dart title="depth_first_tree_collection.dart"
 class DepthFirstTreeCollection implements ITreeCollection {
-  final Graph graph;
-
   const DepthFirstTreeCollection(this.graph);
 
-  @override
-  ITreeIterator createIterator() {
-    return DepthFirstIterator(this);
-  }
+  final Graph graph;
 
   @override
-  String getTitle() {
-    return 'Depth-first';
-  }
+  ITreeIterator createIterator() => DepthFirstIterator(this);
+
+  @override
+  String getTitle() => 'Depth-first';
 }
 ```
 
@@ -153,19 +145,15 @@ class DepthFirstTreeCollection implements ITreeCollection {
 
 ```dart title="breadth_first_tree_collection.dart"
 class BreadthFirstTreeCollection implements ITreeCollection {
-  final Graph graph;
-
   const BreadthFirstTreeCollection(this.graph);
 
-  @override
-  ITreeIterator createIterator() {
-    return BreadthFirstIterator(this);
-  }
+  final Graph graph;
 
   @override
-  String getTitle() {
-    return 'Breadth-first';
-  }
+  ITreeIterator createIterator() => BreadthFirstIterator(this);
+
+  @override
+  String getTitle() => 'Breadth-first';
 }
 ```
 
@@ -174,7 +162,7 @@ class BreadthFirstTreeCollection implements ITreeCollection {
 An interface that defines methods to be implemented by all specific iterators of the tree collection.
 
 ```dart title="itree_iterator.dart"
-abstract class ITreeIterator {
+abstract interface class ITreeIterator {
   bool hasNext();
   int? getNext();
   void reset();
@@ -191,7 +179,7 @@ class DepthFirstIterator implements ITreeIterator {
   final Set<int> visitedNodes = <int>{};
   final ListQueue<int> nodeStack = ListQueue<int>();
 
-  final int _initialNode = 1;
+  final _initialNode = 1;
   late int _currentNode;
 
   DepthFirstIterator(this.treeCollection) {
@@ -202,15 +190,11 @@ class DepthFirstIterator implements ITreeIterator {
   Map<int, Set<int>> get adjacencyList => treeCollection.graph.adjacencyList;
 
   @override
-  bool hasNext() {
-    return nodeStack.isNotEmpty;
-  }
+  bool hasNext() => nodeStack.isNotEmpty;
 
   @override
   int? getNext() {
-    if (!hasNext()) {
-      return null;
-    }
+    if (!hasNext()) return null;
 
     _currentNode = nodeStack.removeLast();
     visitedNodes.add(_currentNode);
@@ -243,7 +227,7 @@ class BreadthFirstIterator implements ITreeIterator {
   final Set<int> visitedNodes = <int>{};
   final ListQueue<int> nodeQueue = ListQueue<int>();
 
-  final int _initialNode = 1;
+  final _initialNode = 1;
   late int _currentNode;
 
   BreadthFirstIterator(this.treeCollection) {
@@ -254,15 +238,11 @@ class BreadthFirstIterator implements ITreeIterator {
   Map<int, Set<int>> get adjacencyList => treeCollection.graph.adjacencyList;
 
   @override
-  bool hasNext() {
-    return nodeQueue.isNotEmpty;
-  }
+  bool hasNext() => nodeQueue.isNotEmpty;
 
   @override
   int? getNext() {
-    if (!hasNext()) {
-      return null;
-    }
+    if (!hasNext()) return null;
 
     _currentNode = nodeQueue.removeFirst();
     visitedNodes.add(_currentNode);
@@ -306,70 +286,59 @@ class IteratorExample extends StatefulWidget {
 class _IteratorExampleState extends State<IteratorExample> {
   final List<ITreeCollection> treeCollections = [];
 
-  int _selectedTreeCollectionIndex = 0;
+  var _selectedTreeCollectionIndex = 0;
   int? _currentNodeIndex = 0;
-  bool _isTraversing = false;
+  var _isTraversing = false;
 
   @override
   void initState() {
     super.initState();
 
     final graph = _buildGraph();
-    treeCollections.add(BreadthFirstTreeCollection(graph));
-    treeCollections.add(DepthFirstTreeCollection(graph));
+
+    treeCollections
+      ..add(BreadthFirstTreeCollection(graph))
+      ..add(DepthFirstTreeCollection(graph));
   }
 
-  Graph _buildGraph() {
-    final graph = Graph();
-
-    graph.addEdge(1, 2);
-    graph.addEdge(1, 3);
-    graph.addEdge(1, 4);
-    graph.addEdge(2, 5);
-    graph.addEdge(3, 6);
-    graph.addEdge(3, 7);
-    graph.addEdge(4, 8);
-
-    return graph;
-  }
+  Graph _buildGraph() => Graph()
+    ..addEdge(1, 2)
+    ..addEdge(1, 3)
+    ..addEdge(1, 4)
+    ..addEdge(2, 5)
+    ..addEdge(3, 6)
+    ..addEdge(3, 7)
+    ..addEdge(4, 8);
 
   void _setSelectedTreeCollectionIndex(int? index) {
-    setState(() {
-      _selectedTreeCollectionIndex = index!;
-    });
+    if (index == null) return;
+
+    setState(() => _selectedTreeCollectionIndex = index);
   }
 
-  Future _traverseTree() async {
+  Future<void> _traverseTree() async {
     _toggleIsTraversing();
 
     final iterator =
         treeCollections[_selectedTreeCollectionIndex].createIterator();
 
     while (iterator.hasNext()) {
-      setState(() {
-        _currentNodeIndex = iterator.getNext();
-      });
+      if (!mounted) return;
+
+      setState(() => _currentNodeIndex = iterator.getNext());
+
       await Future.delayed(const Duration(seconds: 1));
     }
 
     _toggleIsTraversing();
   }
 
-  void _toggleIsTraversing() {
-    setState(() {
-      _isTraversing = !_isTraversing;
-    });
-  }
+  void _toggleIsTraversing() => setState(() => _isTraversing = !_isTraversing);
 
-  void _reset() {
-    setState(() {
-      _currentNodeIndex = 0;
-    });
-  }
+  void _reset() => setState(() => _currentNodeIndex = 0);
 
-  Color _getBackgroundColor(int index) {
-    return _currentNodeIndex == index ? Colors.red[200]! : Colors.white;
-  }
+  Color _getBackgroundColor(int index) =>
+      _currentNodeIndex == index ? Colors.red[200]! : Colors.white;
 
   @override
   Widget build(BuildContext context) {

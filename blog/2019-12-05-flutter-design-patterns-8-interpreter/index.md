@@ -107,10 +107,10 @@ All of the nonterminal expressions contain left and right expressions of type `I
 
 ### IExpression
 
-An interface that defines the `interpret()` method to be implemented by the terminal and nonterminal expression classes. Dart language does not support the interface as a class type, so we define an interface by creating an abstract class and providing a method header (name, return type, parameters) without the default implementation.
+An interface that defines the `interpret()` method to be implemented by the terminal and nonterminal expression classes.
 
 ```dart title="iexpression.dart"
-abstract class IExpression {
+abstract interface class IExpression {
   int interpret(ExpressionContext context);
 }
 ```
@@ -123,9 +123,7 @@ A class to define the context which stores the solution steps of the postfix exp
 class ExpressionContext {
   final List<String> _solutionSteps = [];
 
-  List<String> getSolutionSteps() {
-    return _solutionSteps;
-  }
+  List<String> getSolutionSteps() => _solutionSteps;
 
   void addSolutionStep(String operatorSymbol, int left, int right, int result) {
     final solutionStep =
@@ -175,25 +173,13 @@ class ExpressionHelpers {
     String symbol,
     IExpression leftExpression,
     IExpression rightExpression,
-  ) {
-    IExpression expression;
-
-    switch (symbol) {
-      case '+':
-        expression = Add(leftExpression, rightExpression);
-        break;
-      case '-':
-        expression = Subtract(leftExpression, rightExpression);
-        break;
-      case '*':
-        expression = Multiply(leftExpression, rightExpression);
-        break;
-      default:
-        throw Exception('Expression is not defined.');
-    }
-
-    return expression;
-  }
+  ) =>
+      switch (symbol) {
+        '+' => Add(leftExpression, rightExpression),
+        '-' => Subtract(leftExpression, rightExpression),
+        '*' => Multiply(leftExpression, rightExpression),
+        _ => throw Exception('Expression is not defined.'),
+      };
 }
 ```
 
@@ -203,14 +189,12 @@ A terminal expression class to define the number in postfix expression.
 
 ```dart title="number.dart"
 class Number implements IExpression {
-  final int number;
-
   const Number(this.number);
 
+  final int number;
+
   @override
-  int interpret(ExpressionContext context) {
-    return number;
-  }
+  int interpret(ExpressionContext context) => number;
 }
 ```
 
@@ -220,16 +204,17 @@ class Number implements IExpression {
 
 ```dart title="add.dart"
 class Add implements IExpression {
+  const Add(this.leftExpression, this.rightExpression);
+
   final IExpression leftExpression;
   final IExpression rightExpression;
-
-  const Add(this.leftExpression, this.rightExpression);
 
   @override
   int interpret(ExpressionContext context) {
     final left = leftExpression.interpret(context);
     final right = rightExpression.interpret(context);
     final result = left + right;
+
     context.addSolutionStep('+', left, right, result);
 
     return result;
@@ -241,16 +226,17 @@ class Add implements IExpression {
 
 ```dart title="subtract.dart"
 class Subtract implements IExpression {
+  const Subtract(this.leftExpression, this.rightExpression);
+
   final IExpression leftExpression;
   final IExpression rightExpression;
-
-  const Subtract(this.leftExpression, this.rightExpression);
 
   @override
   int interpret(ExpressionContext context) {
     final left = leftExpression.interpret(context);
     final right = rightExpression.interpret(context);
     final result = left - right;
+
     context.addSolutionStep('-', left, right, result);
 
     return result;
@@ -262,16 +248,17 @@ class Subtract implements IExpression {
 
 ```dart title="multiply.dart"
 class Multiply implements IExpression {
+  const Multiply(this.leftExpression, this.rightExpression);
+
   final IExpression leftExpression;
   final IExpression rightExpression;
-
-  const Multiply(this.leftExpression, this.rightExpression);
 
   @override
   int interpret(ExpressionContext context) {
     final left = leftExpression.interpret(context);
     final right = rightExpression.interpret(context);
     final result = left * right;
+
     context.addSolutionStep('*', left, right, result);
 
     return result;
@@ -341,7 +328,7 @@ class ExpressionSection extends StatefulWidget {
 }
 
 class _ExpressionSectionState extends State<ExpressionSection> {
-  final ExpressionContext _expressionContext = ExpressionContext();
+  final _expressionContext = ExpressionContext();
   final List<String> _solutionSteps = [];
 
   void _solvePrefixExpression() {
@@ -354,9 +341,7 @@ class _ExpressionSectionState extends State<ExpressionSection> {
       ..addAll(_expressionContext.getSolutionSteps())
       ..add('Result: $result');
 
-    setState(() {
-      _solutionSteps.addAll(solutionSteps);
-    });
+    setState(() => _solutionSteps.addAll(solutionSteps));
   }
 
   @override
@@ -366,7 +351,7 @@ class _ExpressionSectionState extends State<ExpressionSection> {
       children: <Widget>[
         Text(
           widget.postfixExpression,
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         const SizedBox(height: LayoutConstants.spaceM),
         AnimatedCrossFade(
@@ -383,7 +368,7 @@ class _ExpressionSectionState extends State<ExpressionSection> {
               for (var solutionStep in _solutionSteps)
                 Text(
                   solutionStep,
-                  style: Theme.of(context).textTheme.subtitle2,
+                  style: Theme.of(context).textTheme.titleSmall,
                 )
             ],
           ),

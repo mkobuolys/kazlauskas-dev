@@ -85,7 +85,7 @@ The class diagram below shows the implementation of the Mediator design pattern:
 
 ![Class Diagram - Implementation of the Mediator design pattern](./img/mediator_implementation.png)
 
-`TeamMember` is an abstract class that is used as a base class for all the specific team member classes. The class contains `name`, `lastNotification` and `notificationHub` properties, and provides several methods:
+`TeamMember` is a base class that is used as a base class for all the specific team member classes. The class contains `name`, `lastNotification` and `notificationHub` properties, and provides several methods:
 
 - `receive()` - receives the notification from the notification hub;
 - `send()` - sends a notification;
@@ -93,7 +93,7 @@ The class diagram below shows the implementation of the Mediator design pattern:
 
 `Admin`, `Developer` and `Tester` are concrete team member classes that extend the abstract class `TeamMember` as well as override the default `toString()` method.
 
-`NotificationHub` is an abstract class that is used as a base class for all the specific notification hubs and defines several abstract methods:
+`NotificationHub` defines an interface for all the specific notification hubs:
 
 - `getTeamMembers()` - returns a list of team members of the hub;
 - `register()` - registers a team member to the hub;
@@ -106,18 +106,18 @@ The class diagram below shows the implementation of the Mediator design pattern:
 
 ### TeamMember
 
-An abstract class implementing base methods for all the specific team member classes. Method `receive()` sets the `lastNotification` value, `send()` and `sendTo<T>()` methods send notification by using the corresponding `notificationHub` methods.
+A base class implementing methods for all the specific team member classes. Method `receive()` sets the `lastNotification` value, `send()` and `sendTo<T>()` methods send notification by using the corresponding `notificationHub` methods.
 
 ```dart title="team_member.dart"
-abstract class TeamMember {
+base class TeamMember {
+  TeamMember({
+    required this.name,
+  });
+
   final String name;
 
   NotificationHub? notificationHub;
   String? lastNotification;
-
-  TeamMember({
-    required this.name,
-  });
 
   void receive(String from, String message) {
     lastNotification = '$from: "$message"';
@@ -140,54 +140,48 @@ All of the specific team member classes extend the `TeamMember` and override the
 `Admin` - a team member class representing the admin role.
 
 ```dart title="admin.dart"
-class Admin extends TeamMember {
+final class Admin extends TeamMember {
   Admin({
     required super.name,
   });
 
   @override
-  String toString() {
-    return "$name (Admin)";
-  }
+  String toString() => '$name (Admin)';
 }
 ```
 
 `Developer` - a team member class representing the developer role.
 
 ```dart title="developer.dart"
-class Developer extends TeamMember {
+final class Developer extends TeamMember {
   Developer({
     required super.name,
   });
 
   @override
-  String toString() {
-    return "$name (Developer)";
-  }
+  String toString() => '$name (Developer)';
 }
 ```
 
 `Tester` - a team member class representing the tester (QA) role.
 
 ```dart title="tester.dart"
-class Tester extends TeamMember {
+final class Tester extends TeamMember {
   Tester({
     required super.name,
   });
 
   @override
-  String toString() {
-    return "$name (QA)";
-  }
+  String toString() => '$name (QA)';
 }
 ```
 
 ### NotificationHub
 
-An abstract class that defines abstract methods to be implemented by specific notification hub classes. Method `getTeamMembers()` returns a list of registered team members to the hub, and `register()` registers a new member to the hub. Method `send()` sends the notification to all the registered team members to the hub (excluding sender) while `sendTo<T>()` sends the notification to team members of a specific type (excluding sender).
+An interface that defines methods to be implemented by specific notification hub classes. Method `getTeamMembers()` returns a list of registered team members to the hub, and `register()` registers a new member to the hub. Method `send()` sends the notification to all the registered team members to the hub (excluding sender) while `sendTo<T>()` sends the notification to team members of a specific type (excluding sender).
 
 ```dart title="notification_hub.dart"
-abstract class NotificationHub {
+abstract interface class NotificationHub {
   List<TeamMember> getTeamMembers();
   void register(TeamMember member);
   void send(TeamMember sender, String message);
@@ -197,17 +191,17 @@ abstract class NotificationHub {
 
 ### TeamNotificationHub
 
-A specific notification hub implementing abstract `NotificationHub` methods. The class also contains private `teamMembers` property - a list of registered team members to the hub.
+A specific notification hub implementing `NotificationHub` interface. The class also contains private `teamMembers` property - a list of registered team members to the hub.
 
 ```dart title="team_notification_hub.dart"
-class TeamNotificationHub extends NotificationHub {
-  final _teamMembers = <TeamMember>[];
-
+class TeamNotificationHub implements NotificationHub {
   TeamNotificationHub({
     List<TeamMember>? members,
   }) {
     members?.forEach(register);
   }
+
+  final _teamMembers = <TeamMember>[];
 
   @override
   List<TeamMember> getTeamMembers() => _teamMembers;
@@ -264,7 +258,7 @@ class _MediatorExampleState extends State<MediatorExample> {
   void initState() {
     super.initState();
 
-    final _members = [
+    final members = [
       _admin,
       Developer(name: 'Sea Sharp'),
       Developer(name: 'Jan Assembler'),
@@ -272,26 +266,16 @@ class _MediatorExampleState extends State<MediatorExample> {
       Tester(name: 'Cori Debugger'),
       Tester(name: 'Tania Mocha'),
     ];
-    _notificationHub = TeamNotificationHub(members: _members);
+    _notificationHub = TeamNotificationHub(members: members);
   }
 
-  void _sendToAll() {
-    setState(() {
-      _admin.send('Hello');
-    });
-  }
+  void _sendToAll() => setState(() => _admin.send('Hello'));
 
-  void _sendToQa() {
-    setState(() {
-      _admin.sendTo<Tester>('BUG!');
-    });
-  }
+  void _sendToQa() => setState(() => _admin.sendTo<Tester>('BUG!'));
 
-  void _sendToDevelopers() {
-    setState(() {
-      _admin.sendTo<Developer>('Hello, World!');
-    });
-  }
+  void _sendToDevelopers() => setState(
+        () => _admin.sendTo<Developer>('Hello, World!'),
+      );
 
   void _addTeamMember() {
     final name = '${faker.person.firstName()} ${faker.person.lastName()}';
@@ -299,16 +283,12 @@ class _MediatorExampleState extends State<MediatorExample> {
         ? Tester(name: name)
         : Developer(name: name);
 
-    setState(() {
-      _notificationHub.register(teamMember);
-    });
+    setState(() => _notificationHub.register(teamMember));
   }
 
-  void _sendFromMember(TeamMember member) {
-    setState(() {
-      member.send('Hello from ${member.name}');
-    });
-  }
+  void _sendFromMember(TeamMember member) => setState(
+        () => member.send('Hello from ${member.name}'),
+      );
 
   @override
   Widget build(BuildContext context) {
