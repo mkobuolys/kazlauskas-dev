@@ -6,8 +6,9 @@ const darkCodeTheme = require("prism-react-renderer/themes/vsDark");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "kazlauskas.dev",
-  tagline: "Welcome to my personal blog",
+  title: "Mangirdas Kazlauskas, Expert Flutter Developer",
+  tagline:
+    "Mangirdas Kazlauskas personal blog about Flutter, Dart, and tech in general.",
   url: "https://kazlauskas.dev",
   baseUrl: "/",
   trailingSlash: true,
@@ -27,7 +28,8 @@ const config = {
         docs: false,
         blog: {
           blogTitle: "Mangirdas Kazlauskas Blog",
-          blogDescription: "Mangirdas Kazlauskas personal blog.",
+          blogDescription:
+            "Mangirdas Kazlauskas personal blog about Flutter, Dart, and tech in general.",
           blogSidebarTitle: "All blog posts",
           blogSidebarCount: "ALL",
           editUrl: "https://github.com/mkobuolys/kazlauskas-dev/tree/main/",
@@ -179,6 +181,7 @@ const config = {
         darkTheme: darkCodeTheme,
         additionalLanguages: ["dart"],
       },
+      metadata: [],
     }),
 };
 
