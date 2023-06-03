@@ -68,6 +68,11 @@ const config = {
             to: "https://pages.kazlauskas.dev/subscribe",
           },
           {
+            label: "Introduction to Flutter",
+            href: "https://kazlauskas.dev/introduction-to-flutter",
+            position: "right",
+          },
+          {
             label: "Flutter Design Patterns",
             href: "https://flutterdesignpatterns.com",
             position: "right",
