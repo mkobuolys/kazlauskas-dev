@@ -62,7 +62,7 @@ class _App extends StatelessWidget {
 }
 ```
 
-For the app’s typography we will use [Google Fonts](https://fonts.google.com/). Thus, add the missing project dependency to the pubspec.yaml file.
+For the app’s typography, we will use [Google Fonts](https://fonts.google.com/). Thus, add the missing project dependency to the pubspec.yaml file.
 
 ```yaml title="pubspec.yaml"
 dependencies:
@@ -72,7 +72,7 @@ dependencies:
   google_fonts: ^3.0.1
 ```
 
-After going through the available Google Fonts, it seems that [Kanit](https://fonts.google.com/specimen/Kanit) font is a close enough option comparing to the original design. Use it as the main text theme.
+After going through the available Google Fonts, it seems that the [Kanit](https://fonts.google.com/specimen/Kanit) font is a close enough option compared to the original design. Use it as the main text theme.
 
 ```dart title="main.dart"
 import 'package:flutter/material.dart';
@@ -387,7 +387,7 @@ class _PasscodeInputViewState extends State<PasscodeInputView> {
 }
 ```
 
-Here is how the header text looks like:
+Here is what the header text looks like:
 
 ![Header text implementation](./img/header-text-implementation.jpg)
 
@@ -1069,7 +1069,7 @@ class RotaryDialInput extends StatelessWidget {
 }
 ```
 
-To be able to switch between different input modes, we need to track the current active mode - the `simpleInputMode` flag indicates just that.
+To be able to switch between different input modes, we need to track the currently active mode - the `simpleInputMode` flag indicates just that.
 
 ```dart title="passcode_input_view.dart"
 import 'package:flutter/material.dart';
@@ -1369,7 +1369,7 @@ class RotaryDialInput extends StatelessWidget {
 }
 ```
 
-From the constraints, get the maximum width of the view and use it to set the size of the component. Since the `RotaryDialInput` is of a circular shape, the height and width properties are equal.
+From the constraints, get the maximum width of the view and use it to set the size of the component. Since the `RotaryDialInput` is circular, the height and width properties are equal.
 
 ```dart title="rotary_dial_input.dart"
 import 'package:flutter/widgets.dart';
@@ -1825,7 +1825,7 @@ class RotaryDialInput extends StatelessWidget {
 }
 ```
 
-To make this painter work, define some more constants - yay. A helpful one is the position of a first dial number.
+To make this painter work, define some more constants - yay. A helpful one is the position of the first dial number.
 
 ```dart title="constants.dart"
 import 'dart:math' as math;
@@ -1844,7 +1844,7 @@ abstract class Constants {
 }
 ```
 
-Then, calculate the maximum angle or the position of a last dial number and the sweep angle or the length of the arc. Oh, and to make it even more complex, these values are inverted a bit to fit the `canvas.drawArc` method. You see, usually radians are calculated from the positive x-axis going counter-clockwise. But while using the `drawArc` method, positive angles are going clockwise around the oval. Improvise, adapt, overcome.
+Then, calculate the maximum angle or the position of the last dial number and the sweep angle or the length of the arc. Oh, and to make it even more complex, these values are inverted a bit to fit the `canvas.drawArc` method. You see, usually, radians are calculated from the positive x-axis going counter-clockwise. But while using the `drawArc` method, positive angles are going clockwise around the oval. Improvise, adapt, overcome.
 
 ```dart title="constants.dart"
 import 'dart:math' as math;
@@ -1867,7 +1867,7 @@ abstract class Constants {
 }
 ```
 
-Similarly as with the background painter, create a painter object - just the width is a bit smaller this time.
+Similarly, as with the background painter, create a painter object - just the width is a bit smaller this time.
 
 ```dart title="rotary_dial_foreground_painter.dart"
 import 'package:flutter/rendering.dart';
@@ -1945,7 +1945,7 @@ class RotaryDialForegroundPainter extends CustomPainter {
 }
 ```
 
-We need 10 cut outs for the dial numbers. So start from the calculated first dial number position and go around the arc clockwise this time. For each hole, draw a circle of the same radius as the dial number and apply the clear blend mode for it.
+We need 10 cutouts for the dial numbers. So start from the calculated first dial number position and go around the arc clockwise this time. For each hole, draw a circle of the same radius as the dial number and apply the clear blend mode for it.
 
 ```dart title="rotary_dial_foreground_painter.dart"
 import 'dart:math' as math;
