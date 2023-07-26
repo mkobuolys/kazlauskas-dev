@@ -2216,7 +2216,7 @@ The only missing piece of the design is the passcode digits indicator.
 
 ## Passcode digits indicator
 
-In both modes, the same passcode digits component is used, just it’s alignment is a bit different. And sizing. And maybe spacing. However, trust me, it IS truly the same component. I can prove it to you 🫡
+In both modes, the same passcode digits component is used, just its alignment is a bit different. And sizing. And maybe spacing. However, trust me, it IS truly the same component. I can prove it to you 🫡
 
 Start with an ugly rectangle as a placeholder.
 
