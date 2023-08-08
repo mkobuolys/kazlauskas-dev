@@ -1,6 +1,6 @@
 ---
 slug: 10-tips-for-speaking-at-tech-conferences
-title: "The 10 things you will learn after speaking at tech conferences"
+title: "10 things you will learn after speaking at tech conferences"
 authors: mkobuolys
 tags:
   - Public Speaking
