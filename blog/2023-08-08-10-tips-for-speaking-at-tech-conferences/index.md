@@ -1,6 +1,6 @@
 ---
 slug: 10-tips-for-speaking-at-tech-conferences
-title: "The 10 things you will learn after speaking at tech conferences"
+title: "10 things you will learn after speaking at tech conferences"
 authors: mkobuolys
 tags:
   - Public Speaking
@@ -22,7 +22,7 @@ In this article, I will share 10 tips I wish I knew before getting on the tech s
 
 Whether you're presenting a new speech or one you've given before, it's common to feel the urge to do better. Accept this feeling as a natural part of the process and concentrate on delivering your best performance.
 
-## 2️. Minimize the risks
+## 2. Minimize the risks
 
 To minimize unnecessary stress, take control of what you can. Charge your devices, do a dry run of your presentation, and confirm that you have all the required adapters and equipment. Even small details can have a significant impact!
 
