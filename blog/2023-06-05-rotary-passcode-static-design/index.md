@@ -23,7 +23,7 @@ If you prefer video content, check out the video version of this article on [You
 
 ## Overview
 
-This is the original Design challenge I found on [Twitter](https://twitter.com/Shubham_iosdev/status/1586321298669834241):
+This is the original Design challenge I found on [X](https://x.com/Shubham_iosdev/status/1586321298669834241):
 
 ![Original tweet of the UI challenge](./img/og-challenge-tweet.png)
 
@@ -3729,4 +3729,4 @@ Here you can see the final result.
 
 Of course, it is still not usable at the moment, but that’s something for the next part of the tutorial, where we will focus on the motion design part of the UI.
 
-If you want to dive deeper into the code, you can find the full source code on [GitHub](https://github.com/mkobuolys/flutter-design-challenges/tree/master/flutter_rotary_passcode). In case of any questions or suggestions - feel free to reach out to me on [Twitter](https://twitter.com/mkobuolys) or any other social media channel.
+If you want to dive deeper into the code, you can find the full source code on [GitHub](https://github.com/mkobuolys/flutter-design-challenges/tree/master/flutter_rotary_passcode). In case of any questions or suggestions - feel free to reach out to me on [X](https://x.com/mkobuolys) or any other social media channel.

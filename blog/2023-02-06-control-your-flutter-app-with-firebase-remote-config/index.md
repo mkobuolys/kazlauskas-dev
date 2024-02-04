@@ -642,4 +642,4 @@ Let’s recap what we learned in this article:
 3. Use Firebase Remote Config for feature flagging and gradual roll-outs of new features.
 4. And do not forget to use A/B tests to validate your assumption and provide the best possible experience for your users.
 
-If you want to dive deeper into the code or try out the Flutter Forward agenda app, you can find the full source code on [GitHub](https://github.com/mkobuolys/flutter-firebase-remote-config-demo). In case of any questions or suggestions - feel free to reach out to me on [Twitter](https://twitter.com/mkobuolys) or any other social media channel.
+If you want to dive deeper into the code or try out the Flutter Forward agenda app, you can find the full source code on [GitHub](https://github.com/mkobuolys/flutter-firebase-remote-config-demo). In case of any questions or suggestions - feel free to reach out to me on [X](https://x.com/mkobuolys) or any other social media channel.

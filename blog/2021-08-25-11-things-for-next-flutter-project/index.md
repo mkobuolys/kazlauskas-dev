@@ -115,7 +115,7 @@ Another type of logging is collecting user data for analysis purposes. When you 
 
 One of the main targets of any application or brand is to be recognizable. Using the right colour palette, logo, icons, design elements, content, font, sometimes even layout makes your product stand out from the others. That’s **application branding**, and preparing the fundamental parts at the beginning will save you a lot of time during the whole project.
 
-If you already have your UI prototype or design components ready, now it’s a good time to transfer them to your application and define theming — colours, fonts, shapes, etc. To make it easier, a good guy [Mike Rydstrom](https://twitter.com/RydMike) created an outstanding package for this — [flex_color_scheme](https://pub.dev/packages/flex_color_scheme).
+If you already have your UI prototype or design components ready, now it’s a good time to transfer them to your application and define theming — colours, fonts, shapes, etc. To make it easier, a good guy [Mike Rydstrom](https://x.com/RydMike) created an outstanding package for this — [flex_color_scheme](https://pub.dev/packages/flex_color_scheme).
 
 ## 8. Project structure and state management
 

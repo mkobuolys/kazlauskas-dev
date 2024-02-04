@@ -43,7 +43,7 @@ class AboutMe {
     'Memes',
   ];
   final social = {
-    'Twitter': 'https://twitter.com/mkobuolys',
+    'X': 'https://x.com/mkobuolys',
     'LinkedIn': 'https://linkedin.com/in/mangirdas-kazlauskas',
     'GitHub': 'https://github.com/mkobuolys',
     'YouTube': 'https://youtube.com/@mkobuolys',
