@@ -1,0 +1,15 @@
+.hero-banner__img {
+  width: 300px;
+}
+
+.hero-banner__title {
+  font-size: 3rem;
+}
+
+.hero-banner__title span {
+  color: var(--ifm-color-primary);
+}
+
+.hero-banner__subtitle {
+  font-size: 1.5rem;
+}

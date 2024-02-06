@@ -1,0 +1,36 @@
+.content-section a {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.content-section__header {
+  justify-content: space-between;
+}
+
+.content-card .card__header {
+  color: #000 !important;
+}
+
+.content-card__image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.content-card__image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.content-card:hover {
+  cursor: pointer;
+}
+
+.content-card:hover h3 {
+  color: var(--ifm-color-primary);
+}
+
+.content-card:hover img {
+  transform: scale(1.1);
+}
