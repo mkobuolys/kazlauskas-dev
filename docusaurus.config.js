@@ -12,30 +12,6 @@ const config = {
     {
       tagName: "meta",
       attributes: {
-        name: "description",
-        content:
-          "Mangirdas Kazlauskas is the first Google Developer Expert for Flutter & Dart technlogies in Lithuania, who crafts high-performance cross-platform apps & frameworks using a product-centric approach. He actively shares his expertise through articles, YouTube videos, and engaging conference talks, empowering businesses and the Flutter community to excel in the digital world. Explore his work and see how he can help you achieve your goals!",
-      },
-    },
-    {
-      tagName: "meta",
-      attributes: {
-        property: "og:description",
-        content:
-          "Mangirdas Kazlauskas is the first Google Developer Expert for Flutter & Dart technlogies in Lithuania, who crafts high-performance cross-platform apps & frameworks using a product-centric approach. He actively shares his expertise through articles, YouTube videos, and engaging conference talks, empowering businesses and the Flutter community to excel in the digital world. Explore his work and see how he can help you achieve your goals!",
-      },
-    },
-    {
-      tagName: "meta",
-      attributes: {
-        property: "twitter:description",
-        content:
-          "Mangirdas Kazlauskas is the first Google Developer Expert for Flutter & Dart technlogies in Lithuania, who crafts high-performance cross-platform apps & frameworks using a product-centric approach. He actively shares his expertise through articles, YouTube videos, and engaging conference talks, empowering businesses and the Flutter community to excel in the digital world. Explore his work and see how he can help you achieve your goals!",
-      },
-    },
-    {
-      tagName: "meta",
-      attributes: {
         name: "keywords",
         content:
           "Mangirdas Kazlauskas, Google Developer Expert, GDE, Expert Flutter Developer, Flutter Development, Dart Development, Cross-platform App Development, Mobile App Development",

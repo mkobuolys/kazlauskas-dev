@@ -88,8 +88,11 @@ const projects = [
 ];
 
 export default function Home() {
+  const description =
+    "Mangirdas Kazlauskas is the first Google Developer Expert for Flutter & Dart technlogies in Lithuania, who crafts high-performance cross-platform apps & frameworks using a product-centric approach. He actively shares his expertise through articles, YouTube videos, and engaging conference talks, empowering businesses and the Flutter community to excel in the digital world. Explore his work and see how he can help you achieve your goals!";
+
   return (
-    <Layout>
+    <Layout description={description}>
       <main className="container">
         <HeroBanner />
         <ContentSection
