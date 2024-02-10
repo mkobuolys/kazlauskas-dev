@@ -1,0 +1,14 @@
+.subscribe-section {
+  background-color: var(--ifm-color-primary);
+  transform: skewY(3deg);
+}
+
+.subscribe-content {
+  padding: 6rem 0;
+  transform: skewY(-3deg);
+}
+
+.subscribe-content__header {
+  color: var(--ifm-font-color-base-inverse);
+  font-size: 2rem;
+}

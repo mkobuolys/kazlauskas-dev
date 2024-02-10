@@ -1,0 +1,28 @@
+.contact-section {
+  background-color: var(--ifm-color-primary);
+}
+
+.contact-content__header {
+  color: var(--ifm-font-color-base-inverse);
+  font-size: 2rem;
+}
+
+.contact-content__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.contact-content__button {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  padding: var(--ifm-button-padding-vertical);
+}
+
+.contact-content__button > svg {
+  fill: var(--ifm-color-gray-900);
+}

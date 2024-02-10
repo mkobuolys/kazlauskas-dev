@@ -43,7 +43,7 @@ const config = {
             "Mangirdas Kazlauskas personal blog about Flutter, Dart, and tech in general.",
           blogSidebarTitle: "All blog posts",
           blogSidebarCount: "ALL",
-          editUrl: "https://github.com/mkobuolys/kazlauskas-dev/tree/main/",
+          editUrl: "https://github.com/mkobuolys/kazlauskas-dev/tree/main",
           showReadingTime: true,
         },
         gtag: {
@@ -82,7 +82,7 @@ const config = {
           {
             label: "LinkedIn",
             position: "right",
-            to: "https://www.linkedin.com/in/mangirdas-kazlauskas/",
+            to: "https://www.linkedin.com/in/mangirdas-kazlauskas",
           },
           {
             label: "GitHub",

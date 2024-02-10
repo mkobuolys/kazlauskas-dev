@@ -49,7 +49,13 @@ export default function ContentSection({
   title,
 }: ContentSectionProps) {
   return (
-    <div className={clsx("margin-vert--xl", styles["content-section"])}>
+    <div
+      className={clsx(
+        "container",
+        "margin-vert--xl",
+        styles["content-section"]
+      )}
+    >
       <div className="col">
         <div
           className={clsx(

@@ -1,8 +1,10 @@
 import Layout from "@theme/Layout";
 
+import ContactSection from "../components/contact-section/ContactSection";
 import ContentSection from "../components/content-section/ContentSection";
 import HeroBanner from "../components/hero-banner/HeroBanner";
 import OpenSourceSection from "../components/open-source-section/OpenSourceSection";
+import SubscribeSection from "../components/subscribe-section/SubscribeSection";
 
 import rotaryPasscodeThumbnail from "../../blog/2023-06-05-rotary-passcode-static-design/img/header.png";
 import tipsForSpeakersThumbnail from "../../blog/2023-08-08-10-tips-for-speaking-at-tech-conferences/img/header.jpeg";
@@ -93,8 +95,9 @@ export default function Home() {
 
   return (
     <Layout description={description}>
-      <main className="container">
+      <main>
         <HeroBanner />
+        <SubscribeSection />
         <ContentSection
           items={articles}
           seeAllLink="blog"
@@ -106,6 +109,7 @@ export default function Home() {
           title="Latest videos"
         />
         <OpenSourceSection projects={projects} />
+        <ContactSection />
       </main>
     </Layout>
   );

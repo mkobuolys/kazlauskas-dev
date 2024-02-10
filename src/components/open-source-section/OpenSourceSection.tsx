@@ -77,7 +77,7 @@ export default function OpenSourceSection({
   projects,
 }: OpenSourceSectionProps) {
   return (
-    <div className="margin-vert--xl">
+    <div className="container margin-vert--xl">
       <div className="col">
         <div
           className={clsx(
