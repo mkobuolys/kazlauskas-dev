@@ -29,8 +29,8 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
         with:
-          server: tauras.serveriai.lt
-          username: kaskas
+          server: ${{ secrets.ftp_server }}
+          username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
           local-dir: ./build/
           server-dir: public_html/
