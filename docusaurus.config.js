@@ -46,6 +46,10 @@ const config = {
           editUrl: "https://github.com/mkobuolys/kazlauskas-dev/tree/main",
           showReadingTime: true,
         },
+        gtag: {
+          trackingID: "G-23PB6WRXH9",
+          anonymizeIP: true,
+        },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
