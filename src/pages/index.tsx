@@ -6,7 +6,7 @@ import HeroBanner from "../components/hero-banner/HeroBanner";
 import OpenSourceSection from "../components/open-source-section/OpenSourceSection";
 import SubscribeSection from "../components/subscribe-section/SubscribeSection";
 
-import rotaryPasscodeThumbnail from "../../blog/2023-06-05-rotary-passcode-static-design/img/header.png";
+import rotaryPasscodeThumbnail from "../../blog/2024-02-15-rotary-passcode-animations/img/header.png";
 import tipsForSpeakersThumbnail from "../../blog/2023-08-08-10-tips-for-speaking-at-tech-conferences/img/header.jpeg";
 import appLifecycleListenerThumbnail from "../../blog/2023-08-17-flutter-app-lifecycle-listener-overview/img/header.png";
 
@@ -20,6 +20,13 @@ import flutterDeckProjectThumbnail from "./img/project-thumbnails/flutter-deck-t
 
 const articles = [
   {
+    title: "Flutter UI challenge: rotary passcode (animations)",
+    description:
+      "Retro rotary passcode input UI challenge made with Flutter. The main focus of this part is motion design - animations.",
+    thumbnail: rotaryPasscodeThumbnail,
+    link: "blog/flutter-ui-challenge-rotary-passcode-animations/",
+  },
+  {
     title: "A new way of listening to the app lifecycle events in Flutter",
     description:
       "Overview of the new AppLifecycleListener class introduced in Flutter 3.13.",
@@ -32,13 +39,6 @@ const articles = [
       "10 things I wish I knew before getting on the tech stage for the first time.",
     thumbnail: tipsForSpeakersThumbnail,
     link: "blog/10-tips-for-speaking-at-tech-conferences/",
-  },
-  {
-    title: "Flutter UI challenge: rotary passcode (static design)",
-    description:
-      "Retro rotary passcode input UI challenge made with Flutter. In the first part, the static design of the UI is implemented.",
-    thumbnail: rotaryPasscodeThumbnail,
-    link: "blog/flutter-ui-challenge-rotary-passcode-static-design/",
   },
 ];
 

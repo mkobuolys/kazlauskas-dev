@@ -29,6 +29,10 @@ This is the original Design challenge I found on [X](https://x.com/Shubham_iosde
 
 Initially, it was implemented using SwiftUI, but I decided to implement it using Flutter and hopefully learn something new. I will split this design challenge into two parts. The first one is static UI - simply, implementing all the visible layout elements. In the second part, I will cover the motion design part of the challenge - animations, gestures, transitions and other fancy eye candies visible on the screen.
 
+:::tip
+The second part of the tutorial is already available [here](../2024-02-15-rotary-passcode-animations/index.md).
+:::
+
 ## Common UI elements
 
 There are two input modes in this UI challenge - the rotary dial input and the simple passcode. The same screen is used in both cases, just the elements are different based on the selected input mode.
@@ -3728,5 +3732,9 @@ Here you can see the final result.
 ![Final result](./img/final-result.gif)
 
 Of course, it is still not usable at the moment, but that’s something for the next part of the tutorial, where we will focus on the motion design part of the UI.
+
+:::tip
+The second part of the tutorial is already available [here](../2024-02-15-rotary-passcode-animations/index.md).
+:::
 
 If you want to dive deeper into the code, you can find the full source code on [GitHub](https://github.com/mkobuolys/flutter-design-challenges/tree/master/flutter_rotary_passcode). In case of any questions or suggestions - feel free to reach out to me on [X](https://x.com/mkobuolys) or any other social media channel.
