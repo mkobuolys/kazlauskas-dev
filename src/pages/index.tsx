@@ -10,7 +10,7 @@ import rotaryPasscodeThumbnail from "../../blog/2024-02-15-rotary-passcode-anima
 import tipsForSpeakersThumbnail from "../../blog/2023-08-08-10-tips-for-speaking-at-tech-conferences/img/header.jpeg";
 import appLifecycleListenerThumbnail from "../../blog/2023-08-17-flutter-app-lifecycle-listener-overview/img/header.png";
 
-import remoteConfigVideoThumbnail from "./img/video-thumbnails/flutter-firebase-thumb.png";
+import aiScavengerHuntThumbnail from "./img/video-thumbnails/ai-scavenger-hunt-thumb.png";
 import rotaryAnimationsVideoThumbnail from "./img/video-thumbnails/rotary-animations-thumb.jpeg";
 import rotaryStaticVideoThumbnail from "./img/video-thumbnails/rotary-static-thumb.png";
 
@@ -44,6 +44,13 @@ const articles = [
 
 const videos = [
   {
+    title: "I built my first generative AI app using Gemini and Flutter",
+    description:
+      "In this video, we will dive into the journey of building my first AI-powered photo scavenger hunt game using the new AI Dart SDK, Gemini and Flutter.",
+    thumbnail: aiScavengerHuntThumbnail,
+    link: "https://youtu.be/uMhfvicLRFw",
+  },
+  {
     title: "Rotary passcode | Flutter UI challenge | Part 2: Animations",
     description:
       "Retro rotary passcode input UI challenge made with Flutter. The main focus of this part is motion design - animations.",
@@ -56,13 +63,6 @@ const videos = [
       "Retro rotary passcode input UI challenge made with Flutter. In the first part, the static design of the UI is implemented.",
     thumbnail: rotaryStaticVideoThumbnail,
     link: "https://youtu.be/Xb30L9wkEGU",
-  },
-  {
-    title: "Control your Flutter app on the fly with Firebase Remote Config",
-    description:
-      "In this video, I cover multiple real-world use cases where Firebase Remote Config could help you while building Flutter apps.",
-    thumbnail: remoteConfigVideoThumbnail,
-    link: "https://youtu.be/1qHSvGoqqiE",
   },
 ];
 
