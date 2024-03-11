@@ -16,7 +16,7 @@ export default function SubscribeSection() {
         )}
       >
         <Heading as="h2" className={styles["subscribe-content__header"]}>
-          Content worth your time, delivered directly to you!
+          Content worth your time, delivered directly to you. For FREE!
         </Heading>
         <Link
           to="https://pages.kazlauskas.dev/subscribe"
