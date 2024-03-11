@@ -6,8 +6,8 @@ import HeroBanner from "../components/hero-banner/HeroBanner";
 import OpenSourceSection from "../components/open-source-section/OpenSourceSection";
 import SubscribeSection from "../components/subscribe-section/SubscribeSection";
 
+import generativeAiAppUsingGemini from "../../blog/2024-03-12-flutter-generative-ai-app-using-gemini/img/header.png";
 import rotaryPasscodeThumbnail from "../../blog/2024-02-15-rotary-passcode-animations/img/header.png";
-import tipsForSpeakersThumbnail from "../../blog/2023-08-08-10-tips-for-speaking-at-tech-conferences/img/header.jpeg";
 import appLifecycleListenerThumbnail from "../../blog/2023-08-17-flutter-app-lifecycle-listener-overview/img/header.png";
 
 import aiScavengerHuntThumbnail from "./img/video-thumbnails/ai-scavenger-hunt-thumb.png";
@@ -19,6 +19,13 @@ import flutterDesignPatternsProjectThumbnail from "./img/project-thumbnails/desi
 import flutterDeckProjectThumbnail from "./img/project-thumbnails/flutter-deck-thumb.png";
 
 const articles = [
+  {
+    title: "How to create a generative AI app using Gemini and Flutter",
+    description:
+      "Overview of the google_generative_ai package and how to use it to create a generative AI app using Gemini and Flutter.",
+    thumbnail: generativeAiAppUsingGemini,
+    link: "blog/flutter-generative-ai-app-using-gemini/",
+  },
   {
     title: "Flutter UI challenge: rotary passcode (animations)",
     description:
@@ -32,13 +39,6 @@ const articles = [
       "Overview of the new AppLifecycleListener class introduced in Flutter 3.13.",
     thumbnail: appLifecycleListenerThumbnail,
     link: "blog/flutter-app-lifecycle-listener-overview/",
-  },
-  {
-    title: "10 things you will learn after speaking at tech conferences",
-    description:
-      "10 things I wish I knew before getting on the tech stage for the first time.",
-    thumbnail: tipsForSpeakersThumbnail,
-    link: "blog/10-tips-for-speaking-at-tech-conferences/",
   },
 ];
 
