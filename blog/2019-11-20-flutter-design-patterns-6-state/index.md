@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-6-state
 title: "Flutter Design Patterns: State"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the State design pattern and its implementation in Dart and Flutter_

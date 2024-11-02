@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-11-abstract-factory
 title: "Flutter Design Patterns: Abstract Factory"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Abstract Factory design pattern and its implementation in Dart and Flutter_

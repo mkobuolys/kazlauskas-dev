@@ -2,12 +2,8 @@
 slug: control-your-flutter-app-with-firebase-remote-config
 title: Control your Flutter app on the fly with Firebase Remote Config
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - Firebase
-  - Firebase Remote Config
 image: ./img/header.png
+tags: [dart, firebase, flutter]
 ---
 
 _Overview of Firebase Remote Config and how to use it to enable real-time features in your Flutter application_

@@ -2,12 +2,8 @@
 slug: flutter-ui-challenge-rotary-passcode-animations
 title: "Flutter UI challenge: rotary passcode (animations)"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - UI challenge
-  - Animations
 image: ./img/header.png
+tags: [animation, dart, flutter, ui]
 ---
 
 _Retro rotary passcode input UI challenge made with Flutter. The main focus of this part is motion design - animations._

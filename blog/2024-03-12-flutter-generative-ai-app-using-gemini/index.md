@@ -2,12 +2,8 @@
 slug: flutter-generative-ai-app-using-gemini
 title: "How to create a generative AI app using Gemini and Flutter"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - Gemini
-  - AI
 image: ./img/header.png
+tags: [ai, dart, gemini, flutter]
 ---
 
 _Overview of the google_generative_ai package and how to use it to create a generative AI app using Gemini and Flutter._

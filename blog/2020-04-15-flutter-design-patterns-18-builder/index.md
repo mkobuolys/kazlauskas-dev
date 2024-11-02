@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-18-builder
 title: "Flutter Design Patterns: Builder"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Builder design pattern and its implementation in Dart and Flutter_

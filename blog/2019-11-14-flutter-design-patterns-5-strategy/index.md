@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-5-strategy
 title: "Flutter Design Patterns: Strategy"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Strategy design pattern and its implementation in Dart and Flutter_

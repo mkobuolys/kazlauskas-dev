@@ -2,10 +2,8 @@
 slug: flutter-app-lifecycle-listener-overview
 title: "A new way of listening to the app lifecycle events in Flutter"
 authors: mkobuolys
-tags:
-  - Flutter
-  - Dart
 image: ./img/header.png
+tags: [dart, flutter]
 ---
 
 _Overview of the new AppLifecycleListener class introduced in Flutter 3.13_

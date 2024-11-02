@@ -44,6 +44,9 @@ const config = {
           blogSidebarTitle: "All blog posts",
           blogSidebarCount: "ALL",
           editUrl: "https://github.com/mkobuolys/kazlauskas-dev/tree/main",
+          onInlineAuthors: "throw",
+          onInlineTags: "throw",
+          onUntruncatedBlogPosts: "throw",
           showReadingTime: true,
         },
         gtag: {

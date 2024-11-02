@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-14-prototype
 title: "Flutter Design Patterns: Prototype"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Prototype design pattern and its implementation in Dart and Flutter_

@@ -1,0 +1,51 @@
+ai:
+  label: "AI"
+  description: "Articles related to artificial intelligence."
+
+animation:
+  label: "Animation"
+  description: "Articles related to animations."
+
+conference:
+  label: "Conference"
+  description: "Articles related to conferences."
+
+dart:
+  label: "Dart"
+  description: "Articles related to Dart programming language."
+
+designPatterns:
+  label: "OOP design patterns"
+  description: "Articles related to OOP design patterns."
+
+firebase:
+  label: "Firebase"
+  description: "Articles related to Firebase."
+
+flutter:
+  label: "Flutter"
+  description: "Articles related to Flutter framework."
+
+gemini:
+  label: "Gemini"
+  description: "Articles related to Gemini."
+
+oop:
+  label: "OOP"
+  description: "Articles related to object-oriented programming."
+
+security:
+  label: "Security"
+  description: "Articles related to security."
+
+softSkills:
+  label: "Soft skills"
+  description: "Articles related to soft skills."
+
+softwareArchitecture:
+  label: "Software architecture"
+  description: "Articles related to software architecture."
+
+ui:
+  label: "UI"
+  description: "Articles related to user interface design."

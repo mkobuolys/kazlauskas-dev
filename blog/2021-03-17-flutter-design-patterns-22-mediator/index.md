@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-22-mediator
 title: "Flutter Design Patterns: Mediator"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Mediator design pattern and its implementation in Dart and Flutter_

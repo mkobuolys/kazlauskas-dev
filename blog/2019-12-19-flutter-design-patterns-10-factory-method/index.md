@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-10-factory-method
 title: "Flutter Design Patterns: Factory Method"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Factory Method design pattern and its implementation in Dart and Flutter_

@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-16-decorator
 title: "Flutter Design Patterns: Decorator"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Decorator design pattern and its implementation in Dart and Flutter_

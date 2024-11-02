@@ -2,11 +2,8 @@
 slug: dart-type-you-have-never-used
 title: Dart type you have NEVER used
 authors: mkobuolys
-tags:
-  - Dart
-  - Type Never
-  - Type Safety
 image: ./img/header.png
+tags: [dart]
 ---
 
 _Dart type system goes: never say never…_

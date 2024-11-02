@@ -2,11 +2,8 @@
 slug: flutter-shopping-app-prototype
 title: "Flutter Shopping App prototype: Lessons learned"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - Software Architecture
 image: ./img/header.png
+tags: [dart, flutter, softwareArchitecture]
 ---
 
 _Some insights on how to implement a production-quality app using Dart + Flutter_

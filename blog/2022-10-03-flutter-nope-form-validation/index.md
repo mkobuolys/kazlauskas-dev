@@ -2,12 +2,8 @@
 slug: flutter-nope-form-validation
 title: How to create a NOPE Flutter form validation in 15 minutes
 authors: mkobuolys
-tags:
-  - Flutter
-  - Dart
-  - UI challenge
-  - Animations
 image: ./img/header.gif
+tags: [animation, dart, flutter, ui]
 ---
 
 _Creating a fun Flutter form validation animation in 15 minutes or less_

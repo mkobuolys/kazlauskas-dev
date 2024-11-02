@@ -2,11 +2,8 @@
 slug: dart-github-supply-chain-security
 title: How to improve the security of your Dart and Flutter projects on GitHub
 authors: mkobuolys
-tags:
-  - Dart
-  - GitHub
-  - Security
 image: ./img/header.png
+tags: [dart, security]
 ---
 
 _Enabling supply chain security features for Dart and Flutter projects on GitHub_

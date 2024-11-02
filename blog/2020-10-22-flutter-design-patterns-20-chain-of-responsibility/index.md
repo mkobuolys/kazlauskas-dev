@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-20-chain-of-responsibility
 title: "Flutter Design Patterns: Chain of Responsibility"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Chain of Responsibility design pattern and its implementation in Dart and Flutter_

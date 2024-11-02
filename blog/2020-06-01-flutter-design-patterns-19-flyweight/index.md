@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-19-flyweight
 title: "Flutter Design Patterns: Flyweight"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Flyweight design pattern and its implementation in Dart and Flutter_

@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-4-composite
 title: "Flutter Design Patterns: Composite"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Composite design pattern and its implementation in Dart and Flutter_

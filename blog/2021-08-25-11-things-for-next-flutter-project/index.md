@@ -2,11 +2,8 @@
 slug: 11-things-to-remember-for-your-next-flutter-project
 title: 11 Things to Remember for Your Next Flutter Project
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - Software Architecture
 image: ./img/header.png
+tags: [dart, flutter, softwareArchitecture]
 ---
 
 _An extensive checklist to kick-off a new Flutter project_

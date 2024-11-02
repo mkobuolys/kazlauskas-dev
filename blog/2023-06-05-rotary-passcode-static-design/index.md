@@ -2,11 +2,8 @@
 slug: flutter-ui-challenge-rotary-passcode-static-design
 title: "Flutter UI challenge: rotary passcode (static design)"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - UI challenge
 image: ./img/header.png
+tags: [dart, flutter, ui]
 ---
 
 _Retro rotary passcode input UI challenge made with Flutter. In the first part, the static design of the UI is implemented._

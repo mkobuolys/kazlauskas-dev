@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-15-proxy
 title: "Flutter Design Patterns: Proxy"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Proxy design pattern and its implementation in Dart and Flutter_

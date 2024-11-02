@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-21-visitor
 title: "Flutter Design Patterns: Visitor"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Visitor design pattern and its implementation in Dart and Flutter_

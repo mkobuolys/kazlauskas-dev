@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-9-iterator
 title: "Flutter Design Patterns: Iterator"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Iterator design pattern and its implementation in Dart and Flutter_

@@ -2,11 +2,8 @@
 slug: flutter-vikings-2022
 title: I was at Flutter Vikings 2022!
 authors: mkobuolys
-tags:
-  - Flutter
-  - Flutter Vikings
-  - Conference
 image: ./img/header.png
+tags: [conference, flutter]
 ---
 
 _My video blog from the Flutter Vikings 2022 conference_

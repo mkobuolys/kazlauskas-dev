@@ -2,10 +2,8 @@
 slug: 10-tips-for-speaking-at-tech-conferences
 title: "10 things you will learn after speaking at tech conferences"
 authors: mkobuolys
-tags:
-  - Public Speaking
-  - Conference
 image: ./img/header.jpeg
+tags: [conference, softSkills]
 ---
 
 _10 things I wish I knew before getting on the tech stage for the first time_

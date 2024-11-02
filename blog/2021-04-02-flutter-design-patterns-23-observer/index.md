@@ -2,12 +2,8 @@
 slug: flutter-design-patterns-23-observer
 title: "Flutter Design Patterns: Observer"
 authors: mkobuolys
-tags:
-  - Dart
-  - Flutter
-  - OOP
-  - Design Patterns
 image: ./img/header.png
+tags: [dart, designPatterns, flutter, oop]
 ---
 
 _An overview of the Observer design pattern and its implementation in Dart and Flutter_
