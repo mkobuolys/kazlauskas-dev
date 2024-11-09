@@ -34,6 +34,10 @@ oop:
   label: "OOP"
   description: "Articles related to object-oriented programming."
 
+pubDev:
+  label: "pub.dev"
+  description: "Articles related to pub.dev and Dart packages."
+
 security:
   label: "Security"
   description: "Articles related to security."
