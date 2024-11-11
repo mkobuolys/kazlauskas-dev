@@ -2,6 +2,7 @@
 slug: publishing-new-flutter-package
 title: "Creating and publishing a new Flutter package to pub.dev in 2 hours"
 authors: mkobuolys
+image: ./img/header.png
 tags: [dart, flutter, pubDev]
 ---
 
