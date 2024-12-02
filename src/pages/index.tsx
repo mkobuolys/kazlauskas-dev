@@ -6,9 +6,9 @@ import HeroBanner from "../components/hero-banner/HeroBanner";
 import OpenSourceSection from "../components/open-source-section/OpenSourceSection";
 import SubscribeSection from "../components/subscribe-section/SubscribeSection";
 
-import generativeAiAppUsingGemini from "../../blog/2024-03-12-flutter-generative-ai-app-using-gemini/img/header.png";
+import publishingNewFlutterPacakgeThumbnail from "../../blog/2024-11-11-publishing-new-flutter-package/img/header.png";
+import generativeAiAppUsingGeminiThumbnail from "../../blog/2024-03-12-flutter-generative-ai-app-using-gemini/img/header.png";
 import rotaryPasscodeThumbnail from "../../blog/2024-02-15-rotary-passcode-animations/img/header.png";
-import appLifecycleListenerThumbnail from "../../blog/2023-08-17-flutter-app-lifecycle-listener-overview/img/header.png";
 
 import aiScavengerHuntThumbnail from "./img/video-thumbnails/ai-scavenger-hunt-thumb.png";
 import rotaryAnimationsVideoThumbnail from "./img/video-thumbnails/rotary-animations-thumb.jpeg";
@@ -20,10 +20,18 @@ import flutterDeckProjectThumbnail from "./img/project-thumbnails/flutter-deck-t
 
 const articles = [
   {
+    title:
+      "Creating and publishing a new Flutter package to pub.dev in 2 hours",
+    description:
+      "A step-by-step guide on how to create and publish a new Flutter package to pub.dev, fast and easy.",
+    thumbnail: publishingNewFlutterPacakgeThumbnail,
+    link: "blog/publishing-new-flutter-package/",
+  },
+  {
     title: "How to create a generative AI app using Gemini and Flutter",
     description:
       "Overview of the google_generative_ai package and how to use it to create a generative AI app using Gemini and Flutter.",
-    thumbnail: generativeAiAppUsingGemini,
+    thumbnail: generativeAiAppUsingGeminiThumbnail,
     link: "blog/flutter-generative-ai-app-using-gemini/",
   },
   {
@@ -32,13 +40,6 @@ const articles = [
       "Retro rotary passcode input UI challenge made with Flutter. The main focus of this part is motion design - animations.",
     thumbnail: rotaryPasscodeThumbnail,
     link: "blog/flutter-ui-challenge-rotary-passcode-animations/",
-  },
-  {
-    title: "A new way of listening to the app lifecycle events in Flutter",
-    description:
-      "Overview of the new AppLifecycleListener class introduced in Flutter 3.13.",
-    thumbnail: appLifecycleListenerThumbnail,
-    link: "blog/flutter-app-lifecycle-listener-overview/",
   },
 ];
 
