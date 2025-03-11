@@ -79,6 +79,10 @@ const config = {
             to: "blog",
           },
           {
+            label: "Presentations",
+            to: "presentations",
+          },
+          {
             label: "Subscribe 🙏",
             to: "https://pages.kazlauskas.dev/subscribe",
           },

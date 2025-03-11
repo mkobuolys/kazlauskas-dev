@@ -19,10 +19,8 @@ const ContentCard = ({
   title,
 }: ContentCardProps) => (
   <div className="col col--4 margin-bottom--md">
-    <Link to={link}>
-      <div
-        className={clsx("card", "card--full-height", styles["content-card"])}
-      >
+    <Link to={link} className={styles["content-card"]}>
+      <div className="card card--full-height">
         <div className={clsx(styles["content-card__image"])}>
           <img src={thumbnail} alt={title} />
         </div>
