@@ -22,6 +22,8 @@
 .alternating-layout-row__img {
   width: 100%;
   margin-bottom: 1rem;
+  max-height: 500px;
+  object-fit: cover;
 }
 
 .alternating-layout-row__thumb {

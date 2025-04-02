@@ -12,8 +12,16 @@ import frcOnTheFlyThumbnail from "../img/presentation-thumbnails/frc-on-the-fly.
 import f3FrcThumbnail from "../img/presentation-thumbnails/f3-frc.png";
 import introductionToFlutterThumbnail from "../img/presentation-thumbnails/introduction-to-flutter.png";
 import lddThumbnail from "../img/presentation-thumbnails/ldd.png";
+import otaAppUpdatesThumbnail from "../img/presentation-thumbnails/ota-app-updates.png";
 
 const presentations = [
+  {
+    title: "From fear to air: embracing over-the-air app updates",
+    subtitle:
+      "Repeat after me: app updates are stressful. Dealing with app store reviews and worrying about disrupting users can make anyone hesitant to release new features. But what if there was a better way? Over-the-air (OTA) updates let you deliver changes directly to your users, super fast and without any fuss. In this talk, we’ll explore various OTA update techniques, from simple tools to advanced methods like code push for instant fixes, feature flags for controlled rollouts and A/B testing, server-driven UI for dynamic content, and even generative AI for personalized experiences.",
+    thumbnail: otaAppUpdatesThumbnail,
+    link: "/ota-app-updates",
+  },
   {
     title: "Cat-like Development: Flutter for Efficiency",
     subtitle:

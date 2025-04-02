@@ -18,9 +18,9 @@ import flutterDesignChallengesProjectThumbnail from "./img/project-thumbnails/de
 import flutterDesignPatternsProjectThumbnail from "./img/project-thumbnails/design-patterns-thumb.png";
 import flutterDeckProjectThumbnail from "./img/project-thumbnails/flutter-deck-thumb.png";
 
-import designPatternsThumbnail from "./img/presentation-thumbnails/flutter-design-patterns.png";
 import f3FrcThumbnail from "./img/presentation-thumbnails/f3-frc.png";
 import lddThumbnail from "./img/presentation-thumbnails/ldd.png";
+import otaAppUpdatesThumbnail from "./img/presentation-thumbnails/ota-app-updates.png";
 
 const articles = [
   {
@@ -96,6 +96,13 @@ const projects = [
 
 const presentations = [
   {
+    title: "From fear to air: embracing over-the-air app updates",
+    subtitle:
+      "Repeat after me: app updates are stressful. Dealing with app store reviews and worrying about disrupting users can make anyone hesitant to release new features. But what if there was a better way? Over-the-air (OTA) updates let you deliver changes directly to your users, super fast and without any fuss. In this talk, we’ll explore various OTA update techniques, from simple tools to advanced methods like code push for instant fixes, feature flags for controlled rollouts and A/B testing, server-driven UI for dynamic content, and even generative AI for personalized experiences.",
+    thumbnail: otaAppUpdatesThumbnail,
+    link: "/ota-app-updates",
+  },
+  {
     title: "Cat-like Development: Flutter for Efficiency",
     subtitle:
       'Many developers chase the dream of being a "unicorn" - an individual who seamlessly wields the power to design, build, and deliver remarkable products. But what if you are more like a cat? A person, who wants to invest the least amount of effort for the maximum outcome. In this talk, we will explore how Flutter empowers developers to do exactly that.',
@@ -108,13 +115,6 @@ const presentations = [
       "Firebase Remote Config is a powerful tool that allows you to change the behaviour and appearance of your app without requiring users to download an app update. This means that you can experiment with new features and changes, and see how they impact your users' behaviour in real-time. In this talk, we will learn how to use Firebase Remote Config to make smarter decisions faster.",
     thumbnail: f3FrcThumbnail,
     link: "/f3-firebase-remote-config",
-  },
-  {
-    title: "Design Patterns toolbox: (not so) obvious patterns for Flutter",
-    subtitle:
-      "Overview of some OOP Design Patterns and their pure implementation in Dart as well as seeing them in action by investigating the example app.",
-    thumbnail: designPatternsThumbnail,
-    link: "/design-patterns-talk",
   },
 ];
 
