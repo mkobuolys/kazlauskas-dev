@@ -42,6 +42,10 @@ security:
   label: "Security"
   description: "Articles related to security."
 
+selfImprovement:
+  label: "Self-improvement"
+  description: "Articles related to self-improvement."
+
 softSkills:
   label: "Soft skills"
   description: "Articles related to soft skills."
