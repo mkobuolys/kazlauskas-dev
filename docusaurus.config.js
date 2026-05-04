@@ -6,8 +6,7 @@ const { themes } = require("prism-react-renderer");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Mangirdas Kazlauskas, Expert Flutter Developer",
-  tagline:
-    "Mangirdas Kazlauskas personal blog about Flutter, Dart, and tech in general.",
+  tagline: "My personal blog about Flutter, Dart, and tech in general.",
   headTags: [
     {
       tagName: "meta",
@@ -109,7 +108,7 @@ const config = {
         blog: {
           blogTitle: "Mangirdas Kazlauskas Blog",
           blogDescription:
-            "Mangirdas Kazlauskas personal blog about Flutter, Dart, and tech in general.",
+            "My personal blog about Flutter, Dart, and tech in general.",
           blogSidebarTitle: "All blog posts",
           blogSidebarCount: "ALL",
           editUrl: "https://github.com/mkobuolys/kazlauskas-dev/tree/main",
@@ -117,10 +116,21 @@ const config = {
           onInlineTags: "throw",
           onUntruncatedBlogPosts: "throw",
           showReadingTime: true,
+          showLastUpdateTime: true,
         },
         gtag: {
           trackingID: "G-23PB6WRXH9",
           anonymizeIP: true,
+        },
+        sitemap: {
+          lastmod: "date",
+          ignorePatterns: [
+            "/blog/tags/**",
+            "/blog/page/**",
+            "/blog/archive",
+            "/blog/archive/**",
+            "/blog/authors/**",
+          ],
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

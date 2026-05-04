@@ -7,9 +7,9 @@ import ContentSection from "../components/content-section/ContentSection";
 import HeroBanner from "../components/hero-banner/HeroBanner";
 import SubscribeSection from "../components/subscribe-section/SubscribeSection";
 
-import publishingNewFlutterPacakgeThumbnail from "../../blog/2024-11-11-publishing-new-flutter-package/img/header.png";
-import generativeAiAppUsingGeminiThumbnail from "../../blog/2024-03-12-flutter-generative-ai-app-using-gemini/img/header.png";
 import rotaryPasscodeThumbnail from "../../blog/2024-02-15-rotary-passcode-animations/img/header.png";
+import generativeAiAppUsingGeminiThumbnail from "../../blog/2024-03-12-flutter-generative-ai-app-using-gemini/img/header.png";
+import publishingNewFlutterPacakgeThumbnail from "../../blog/2024-11-11-publishing-new-flutter-package/img/header.png";
 
 import aiScavengerHuntThumbnail from "./img/video-thumbnails/ai-scavenger-hunt-thumb.png";
 import rotaryAnimationsVideoThumbnail from "./img/video-thumbnails/rotary-animations-thumb.jpeg";
@@ -78,7 +78,8 @@ const projects = [
     subtitle:
       "A lightweight, customizable, and easy-to-use framework to create presentations in Flutter.",
     thumbnail: flutterDeckProjectThumbnail,
-    link: "https://pub.dev/packages/flutter_deck",
+    link: "https://flutterdeck.dev",
+    label: "Create presentations with flutter_deck",
   },
   {
     title: "Flutter Design Patterns",
@@ -86,12 +87,14 @@ const projects = [
       "An open-source OOP design patterns application built with Dart and Flutter.",
     thumbnail: flutterDesignPatternsProjectThumbnail,
     link: "https://flutterdesignpatterns.com/",
+    label: "Open the Flutter Design Patterns app",
   },
   {
     title: "Flutter Design Challenges",
     subtitle: "A collection of design challenges implemented in Flutter.",
     thumbnail: flutterDesignChallengesProjectThumbnail,
     link: "https://github.com/mkobuolys/flutter-design-challenges",
+    label: "Browse challenges on GitHub",
   },
 ];
 
@@ -102,6 +105,7 @@ const presentations = [
       "Repeat after me: app updates are stressful. Dealing with app store reviews and worrying about disrupting users can make anyone hesitant to release new features. But what if there was a better way? Over-the-air (OTA) updates let you deliver changes directly to your users, super fast and without any fuss. In this talk, we’ll explore various OTA update techniques, from simple tools to advanced methods like code push for instant fixes, feature flags for controlled rollouts and A/B testing, server-driven UI for dynamic content, and even generative AI for personalized experiences.",
     thumbnail: otaAppUpdatesThumbnail,
     link: "/ota-app-updates",
+    label: "Open the OTA updates deck",
   },
   {
     title: "Cat-like Development: Flutter for Efficiency",
@@ -109,6 +113,7 @@ const presentations = [
       'Many developers chase the dream of being a "unicorn" - an individual who seamlessly wields the power to design, build, and deliver remarkable products. But what if you are more like a cat? A person, who wants to invest the least amount of effort for the maximum outcome. In this talk, we will explore how Flutter empowers developers to do exactly that.',
     thumbnail: lddThumbnail,
     link: "/ldd",
+    label: "View the Cat-like Development slides",
   },
   {
     title: "Make smarter decisions faster with Firebase Remote Config",
@@ -116,6 +121,7 @@ const presentations = [
       "Firebase Remote Config is a powerful tool that allows you to change the behaviour and appearance of your app without requiring users to download an app update. This means that you can experiment with new features and changes, and see how they impact your users' behaviour in real-time. In this talk, we will learn how to use Firebase Remote Config to make smarter decisions faster.",
     thumbnail: f3FrcThumbnail,
     link: "/f3-firebase-remote-config",
+    label: "See the Firebase Remote Config slides",
   },
 ];
 
@@ -137,10 +143,7 @@ export default function Home() {
           title="Latest blog posts"
         />
         <AlternatingLayout
-          items={projects.map((project) => ({
-            ...project,
-            label: "Learn more",
-          }))}
+          items={projects}
           link="https://github.com/mkobuolys"
           title="Open-source projects"
         />
@@ -150,10 +153,7 @@ export default function Home() {
           title="Latest videos"
         />
         <AlternatingLayout
-          items={presentations.map((presentation) => ({
-            ...presentation,
-            label: "View slides",
-          }))}
+          items={presentations}
           link="/presentations"
           title="Latest presentations"
         />

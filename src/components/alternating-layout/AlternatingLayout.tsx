@@ -6,6 +6,7 @@ import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
 
 interface AlternatingLayoutItem {
+  ariaLabel?: string;
   label: string;
   link: string;
   subtitle: string;
@@ -24,6 +25,7 @@ interface AlternatingLayoutProps {
 }
 
 const AlternatingLayoutRow = ({
+  ariaLabel,
   index,
   label,
   link,
@@ -76,6 +78,7 @@ const AlternatingLayoutRow = ({
           to={link}
           className="button button--primary margin-top--md"
           target="_blank"
+          aria-label={ariaLabel}
         >
           {label}
         </Link>
