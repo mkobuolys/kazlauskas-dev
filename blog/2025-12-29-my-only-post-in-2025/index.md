@@ -6,7 +6,7 @@ image: ./img/header.jpeg
 tags: [selfImprovement, softSkills]
 ---
 
-Reflecting on my writing journey, motivation, and how 2025 changed the perspective.
+_Reflecting on my writing journey, motivation, and how 2025 changed the perspective._
 
 ![Header image - my last conference of 2025](./img/header.jpeg)
 
