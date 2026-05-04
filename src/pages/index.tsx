@@ -1,3 +1,4 @@
+import Head from "@docusaurus/Head";
 import Layout from "@theme/Layout";
 
 import AlternatingLayout from "../components/alternating-layout/AlternatingLayout";
@@ -120,10 +121,13 @@ const presentations = [
 
 export default function Home() {
   const description =
-    "Mangirdas Kazlauskas is the first Google Developer Expert for Flutter & Dart technlogies in Lithuania, who crafts high-performance cross-platform apps & frameworks using a product-centric approach. He actively shares his expertise through articles, YouTube videos, and engaging conference talks, empowering businesses and the Flutter community to excel in the digital world. Explore his work and see how he can help you achieve your goals!";
+    "Mangirdas Kazlauskas — Google Developer Expert for Flutter & Dart from Lithuania. Articles, talks, videos, and open-source projects on Flutter, Dart, and cross-platform mobile development.";
 
   return (
     <Layout description={description}>
+      <Head>
+        <meta property="og:type" content="website" />
+      </Head>
       <main>
         <HeroBanner />
         <SubscribeSection />

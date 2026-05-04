@@ -17,6 +17,70 @@ const config = {
           "Mangirdas Kazlauskas, Google Developer Expert, GDE, Expert Flutter Developer, Flutter Development, Dart Development, Cross-platform App Development, Mobile App Development",
       },
     },
+    {
+      tagName: "meta",
+      attributes: { name: "author", content: "Mangirdas Kazlauskas" },
+    },
+    {
+      tagName: "meta",
+      attributes: { property: "og:site_name", content: "kazlauskas.dev" },
+    },
+    {
+      tagName: "meta",
+      attributes: { name: "twitter:site", content: "@mkobuolys" },
+    },
+    {
+      tagName: "meta",
+      attributes: { name: "twitter:creator", content: "@mkobuolys" },
+    },
+    {
+      tagName: "script",
+      attributes: { type: "application/ld+json" },
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://kazlauskas.dev/#person",
+            name: "Mangirdas Kazlauskas",
+            alternateName: "mkobuolys",
+            url: "https://kazlauskas.dev/",
+            image: "https://kazlauskas.dev/img/mkobuolys.png",
+            jobTitle: "Mobile Tech Lead",
+            worksFor: { "@type": "Organization", name: "Billo" },
+            description:
+              "Google Developer Expert for Flutter & Dart. Mobile Tech Lead, conference speaker, and Flutter Vilnius organiser based in Lithuania.",
+            knowsAbout: [
+              "Flutter",
+              "Dart",
+              "Mobile App Development",
+              "Cross-platform Development",
+              "Software Architecture",
+              "Public Speaking",
+            ],
+            sameAs: [
+              "https://x.com/mkobuolys",
+              "https://linkedin.com/in/mangirdas-kazlauskas",
+              "https://github.com/mkobuolys",
+              "https://youtube.com/@mkobuolys",
+              "https://sessionize.com/mangirdas-kazlauskas",
+              "https://stackoverflow.com/users/15427566/mkobuolys",
+            ],
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://kazlauskas.dev/#website",
+            url: "https://kazlauskas.dev/",
+            name: "kazlauskas.dev",
+            description:
+              "Mangirdas Kazlauskas personal site about Flutter, Dart, and tech in general.",
+            inLanguage: "en",
+            publisher: { "@id": "https://kazlauskas.dev/#person" },
+            author: { "@id": "https://kazlauskas.dev/#person" },
+          },
+        ],
+      }),
+    },
   ],
   url: "https://kazlauskas.dev",
   baseUrl: "/",

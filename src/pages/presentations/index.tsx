@@ -1,5 +1,6 @@
 import clsx from "clsx";
 
+import Head from "@docusaurus/Head";
 import Link from "@docusaurus/Link";
 import Heading from "@theme/Heading";
 import Layout from "@theme/Layout";
@@ -110,15 +111,19 @@ const PresentationRow = ({
 };
 
 export default function Presentations() {
+  const title = "Presentations & Conference Talks";
   const description =
-    "Explore my latest presentations and conference talks. Learn about Flutter, Firebase, AI, and more!";
+    "Conference talks and presentations by Mangirdas Kazlauskas on Flutter, Dart, Firebase, generative AI, and cross-platform mobile development.";
 
   return (
-    <Layout description={description}>
+    <Layout title={title} description={description}>
+      <Head>
+        <meta property="og:type" content="website" />
+      </Head>
       <main>
         <div className="container margin-vert--lg">
           <h1 className={styles["presentation-page__title"]}>
-            My presentations
+            Presentations & Conference Talks
           </h1>
           {presentations.map((presentation, index) => (
             <PresentationRow

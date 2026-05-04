@@ -16,7 +16,7 @@ export default function HeroBanner() {
             <img
               className={clsx("margin-bottom--md", styles["hero-banner__img"])}
               src={profilePicture}
-              alt="Mangirdas Kazlauskas"
+              alt="Mangirdas Kazlauskas — Google Developer Expert for Flutter & Dart"
             />
             <Heading as="h1" className={styles["hero-banner__title"]}>
               Labas! I'm <span>Mangirdas</span> 👋

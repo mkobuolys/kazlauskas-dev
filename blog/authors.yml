@@ -1,9 +1,10 @@
 mkobuolys:
   name: Mangirdas Kazlauskas
-  title: "@mkobuolys"
-  url: /
+  title: "Google Developer Expert for Flutter & Dart"
+  url: https://kazlauskas.dev/
   image_url: https://avatars.githubusercontent.com/u/17415795?v=4
   email: mangirdas@kazlauskas.dev
+  page: false
   socials:
     github: mkobuolys
     linkedin: mangirdas-kazlauskas
